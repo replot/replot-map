@@ -155,60 +155,6 @@ class ExampleApp extends React.Component {
                valueKey="citizenship"
                colorLinear={["#0f0f33", "#ffffff"]}
              />
-
-
-             <svg width="1048px" height="700px" viewBox="0 0 1048 429" version="1.1">
-                 <defs></defs>
-                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                     <g id="Desktop-HD" transform="translate(-354.000000, -150.000000)">
-                         <text id="Country" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="385" y="307">Country</tspan>
-                         </text>
-                         <text id="Value" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="385" y="364">Value </tspan>
-                         </text>
-                         <text id="Animation" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="385" y="424">Animation </tspan>
-                         </text>
-                         <text id="Area" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="1001" y="308">Area</tspan>
-                         </text>
-                         <text id="Colors" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="1001" y="525">Colors </tspan>
-                         </text>
-                         <text id="City-/-State" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="1167" y="243">City / State </tspan>
-                         </text>
-                         <text id="Region" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="1167" y="352">Region </tspan>
-                         </text>
-                         <text id="Linear-coloring" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="1167" y="467">Linear coloring </tspan>
-                         </text>
-                         <text id="Color-by-#tags" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="1167" y="519">Color by #tags </tspan>
-                         </text>
-                         <path d="M712,258 C712,258 710.255792,297.242328 679.5,303.5 C648.744208,309.757672 481,305 481,305" id="Line" stroke="#979797" stroke-linecap="square"></path>
-                         <path d="M716,215 L713,314 C713,314 711.255792,353.242328 680.5,359.5 C649.744208,365.757672 482,361 482,361" id="Line" stroke="#979797" stroke-linecap="square"></path>
-                         <path d="M718,272 L715,371 C715,371 713.255792,410.242328 682.5,416.5 C651.744208,422.757672 484,418 484,418" id="Line" stroke="#979797" stroke-linecap="square"></path>
-                         <path d="M976,249 L977,476 C977,476 975.255792,515.242328 944.5,521.5 C913.744208,527.757672 721,524 721,524" id="Line" stroke="#979797" stroke-linecap="square" transform="translate(849.000000, 387.059408) scale(-1, 1) translate(-849.000000, -387.059408) "></path>
-                         <path d="M990,258 C990,258 987.991518,297.242328 952.575758,303.5 C917.159997,309.757672 724,305 724,305" id="Line" stroke="#979797" stroke-linecap="square" transform="translate(857.000000, 282.365733) scale(-1, 1) translate(-857.000000, -282.365733) "></path>
-                         <path d="M1079.5,295.5 L1142.5,239.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
-                         <path d="M1079.5,352.5 L1142.5,296.5" id="Line" stroke="#979797" stroke-linecap="square" transform="translate(1111.000000, 324.500000) scale(1, -1) translate(-1111.000000, -324.500000) "></path>
-                         <path d="M1079.5,516.5 L1142.5,460.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
-                         <path d="M1079.5,573.5 L1142.5,517.5" id="Line" stroke="#979797" stroke-linecap="square" transform="translate(1111.000000, 545.500000) scale(1, -1) translate(-1111.000000, -545.500000) "></path>
-                         <path d="M1082.5,517.5 L1156.5,517.5" id="Line" stroke="#979797" stroke-linecap="square" transform="translate(1119.500000, 517.500000) scale(1, -1) translate(-1119.500000, -517.500000) "></path>
-                         <circle id="Oval" stroke="#979797" fill="#FFFFFF" cx="723" cy="211" r="60"></circle>
-                         <text id="Replot--map" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#80B0BC">
-                             <tspan x="700.225" y="204">Replot</tspan>
-                             <tspan x="705.775" y="238">Map </tspan>
-                         </text>
-                         <text id="Provided-by-the-user" font-family="Avenir-Medium, Avenir" font-size="25" font-weight="400" fill="#979898">
-                             <tspan x="1167" y="573">Provided by the user</tspan>
-                         </text>
-                     </g>
-                 </g>
-             </svg>
         </div>
       </div>
     )
