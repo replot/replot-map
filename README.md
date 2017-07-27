@@ -1,9 +1,10 @@
-# replot-map
+## replot-map
 ​
 replot-map is designed to help you visualize your data in a map layout on the fly.  
 ​
-## Basic Usage
-To use replot-map basic functionally, you need to provide properly formatted data, and the keys to the country, area, value.
+### Basic Usage
+To use replot-map basic functionally, you need to provide properly 
+formatted data, and the keys to the country, area, value.
 ​
 ``` javascript
 render() {
@@ -24,12 +25,12 @@ render() {
 }
 ```
 ​
-## Dimensions
+### Dimensions
 ​
-### Color
-### Displaying text
-### Tooltip
-### Initial Animation
+#### Color
+#### Displaying text
+#### Tooltip
+#### Initial Animation
 ​
 ​
 ​
