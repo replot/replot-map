@@ -1,13 +1,13 @@
 
 class Coloring {
 
-  constructor (IDList, IDKey, weightKey, scale, data, colorKey, colorLinear, colorCatgories){
+  constructor (IDList, IDKey, weightKey, scale, data, colorKey, colorRange, colorCatgories){
     this.IDList = IDList
     this.IDKey = IDKey
     this.weightKey = weightKey
     this.scale = scale
     this.colorKey = colorKey
-    this.colorLinear = colorLinear
+    this.colorRange = colorRange
     this.colorCatgories = colorCatgories
     this.data = data.sort(function compare(a,b) {
       if (a.area < b.area) return -1
@@ -19,12 +19,12 @@ class Coloring {
   /* Chose the right function based on props */
   generate() {
     if(this.colorKey){}
-    if(this.colorLinear){
+    if(this.colorRange){
       let range = this.getRange()
       // let count = this.getCount()
       let count = 100
-      let colors = this.generateColor(this.colorLinear[0], this.colorLinear[1], count, range)
-      return this.matchColorsToValues(colors)
+      this.colorGradient = this.generateColor(this.colorRange[0], this.colorRange[1], count, range)
+      return this.matchColorsToValues(this.colorGradient)
     }
     if(this.colorCatgories){}
   }
@@ -86,7 +86,7 @@ class Coloring {
   	let saida = []
     let weight, valueRatio, pow10
     if (this.scale === "lin") {
-      valueRatio = (weightRange.max - weightRange.min) / colorCount
+      valueRatio = (weightRange.max - weightRange.min) / (colorCount)
     } else if (this.scale === "log") {
       if (weightRange.min === 0) {
         valueRatio = Math.log10(weightRange.max) / (colorCount-1)

@@ -22,12 +22,8 @@ class Map extends React.Component {
     // call this function only in case of colorLinear
     let data =  this.extractValues()
 
-    // call this function to get colors
-    // let colors = new Coloring(data, this.props.valueKey, this.props.colorKey, this.props.colorLinear, this.props.colorCatgories)
-    // colors = colors.generate()
-
     let map = getMap(region, data, this.props.IDKey, this.props.weightKey, this.props.scale,
-      this.props.colorKey, this.props.colorLinear, this.props.colorCatgories)
+      this.props.colorKey, this.props.colorRange, this.props.colorCatgories, this.props.width)
 
     return(
         <div>
@@ -42,7 +38,7 @@ Map.defaultProps = {
   IDKey: "",
   weightKey:"",
   colorKey: "",
-  colorLinear: [],
+  colorRange: [],
   colorCatgories: "",
   scale: "lin"
   // initialAnimation: true,
