@@ -23295,6 +23295,8 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -23346,6 +23348,7 @@ var Dropdown = function (_React$Component) {
           position: "relative"
         },
         current: {
+          cursor: "pointer",
           fontSize: "0.8rem",
           textAlign: "center",
           width: "10.5rem",
@@ -23358,7 +23361,7 @@ var Dropdown = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        null,
+        { style: { marginTop: "20px", display: "inline-block", verticalAlign: "top" } },
         _react2.default.createElement(
           "div",
           { style: style.title },
@@ -23455,11 +23458,10 @@ var StateButton = function (_React$Component2) {
           fontSize: "0.8rem",
           width: "10.5rem",
           float: "left",
-          padding: "3px 4px",
+          padding: "6px 4px",
           textAlign: "center",
           color: "white",
-          backgroundColor: this.props.color,
-          borderRadius: "15px"
+          backgroundColor: this.props.color
         }
       };
 
@@ -23487,15 +23489,15 @@ var StateSwitch = function (_React$Component3) {
   _createClass(StateSwitch, [{
     key: "render",
     value: function render() {
+      var _outer;
+
       var style = {
-        outer: {
-          fontSize: "0.8rem",
-          minHeight: "15px",
+        outer: (_outer = {
+          display: "inline-block",
           verticalAlign: "top",
-          boxSizing: "border-box",
-          marginTop: "8px",
-          paddingBottom: "8px"
-        },
+          fontSize: "0.8rem",
+          minHeight: "15px"
+        }, _defineProperty(_outer, "verticalAlign", "top"), _defineProperty(_outer, "boxSizing", "border-box"), _defineProperty(_outer, "marginTop", "20px"), _defineProperty(_outer, "paddingBottom", "8px"), _outer),
         inner: {
           // textAlign: "center",
           // margin: "auto"
@@ -23586,11 +23588,6 @@ var ExampleApp = function (_React$Component4) {
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(Dropdown, {
-          selected: this.state.weightKey,
-          list: ["ug1314", "g1314", "ug1415", "g1415", "ug1516", "g1516"],
-          handleChange: this.updateWeightKey.bind(this)
-        }),
         _react2.default.createElement(_index2.default, {
           data: data,
           titleKey: "region",
@@ -23598,6 +23595,11 @@ var ExampleApp = function (_React$Component4) {
           IDKey: "code",
           scale: this.state.scale,
           colorRange: ["#f17e33", "#fdf4ee"]
+        }),
+        _react2.default.createElement(Dropdown, {
+          selected: this.state.weightKey,
+          list: ["ug1314", "g1314", "ug1415", "g1415", "ug1516", "g1516"],
+          handleChange: this.updateWeightKey.bind(this)
         }),
         _react2.default.createElement(StateSwitch, {
           name: "Scale",

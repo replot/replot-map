@@ -37,6 +37,7 @@ class Dropdown extends React.Component {
         position: "relative",
       },
       current: {
+        cursor: "pointer",
         fontSize: "0.8rem",
         textAlign: "center",
         width: "10.5rem",
@@ -48,7 +49,7 @@ class Dropdown extends React.Component {
     }
 
     return (
-      <div>
+      <div style={{marginTop: "20px", display: "inline-block", verticalAlign: "top"}}>
         <div style={style.title}>Data: </div>
         <div style={style.container}>
           <div onClick={!this.state.listVisible? this.show.bind(this) : null}>
@@ -112,11 +113,10 @@ class StateButton extends React.Component {
         fontSize: "0.8rem",
         width: "10.5rem",
         float: "left",
-        padding: "3px 4px",
+        padding: "6px 4px",
         textAlign: "center",
         color: "white",
         backgroundColor: this.props.color,
-        borderRadius: "15px",
       }
     }
 
@@ -135,11 +135,13 @@ class StateSwitch extends React.Component {
   render() {
     const style = {
       outer: {
+        display: "inline-block",
+        verticalAlign: "top",
         fontSize: "0.8rem",
         minHeight: "15px",
         verticalAlign: "top",
         boxSizing: "border-box",
-        marginTop: "8px",
+        marginTop: "20px",
         paddingBottom: "8px"
       },
       inner: {
@@ -325,11 +327,6 @@ class ExampleApp extends React.Component {
 
     return (
       <div>
-        <Dropdown
-          selected={this.state.weightKey}
-          list={["ug1314", "g1314", "ug1415", "g1415", "ug1516", "g1516"]}
-          handleChange={this.updateWeightKey.bind(this)}
-          />
         <Map
           data={data}
           titleKey="region"
@@ -337,6 +334,11 @@ class ExampleApp extends React.Component {
           IDKey="code"
           scale={this.state.scale}
           colorRange={["#f17e33", "#fdf4ee"]}
+          />
+        <Dropdown
+          selected={this.state.weightKey}
+          list={["ug1314", "g1314", "ug1415", "g1415", "ug1516", "g1516"]}
+          handleChange={this.updateWeightKey.bind(this)}
           />
         <StateSwitch
           name="Scale"

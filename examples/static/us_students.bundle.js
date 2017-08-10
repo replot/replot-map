@@ -23294,6 +23294,8 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -23345,19 +23347,20 @@ var Dropdown = function (_React$Component) {
           position: "relative"
         },
         current: {
+          cursor: "pointer",
           fontSize: "0.8rem",
           textAlign: "center",
           width: "10.5rem",
           padding: "5px",
           color: "#ffffff",
-          background: "#f17e33",
+          background: "#ca0004",
           border: "1px solid #000000"
         }
       };
 
       return _react2.default.createElement(
         "div",
-        null,
+        { style: { marginTop: "20px", display: "inline-block", verticalAlign: "top" } },
         _react2.default.createElement(
           "div",
           { style: style.title },
@@ -23385,7 +23388,7 @@ var Dropdown = function (_React$Component) {
       return {
         fontSize: "0.8rem",
         color: "#ffffff",
-        background: "#f17e33",
+        background: "#ca0004",
         zIndex: "10",
         border: "1px solid #000000",
         width: "10.5rem",
@@ -23454,11 +23457,10 @@ var StateButton = function (_React$Component2) {
           fontSize: "0.8rem",
           width: "10.5rem",
           float: "left",
-          padding: "3px 4px",
+          padding: "6px 4px",
           textAlign: "center",
           color: "white",
-          backgroundColor: this.props.color,
-          borderRadius: "15px"
+          backgroundColor: this.props.color
         }
       };
 
@@ -23486,15 +23488,16 @@ var StateSwitch = function (_React$Component3) {
   _createClass(StateSwitch, [{
     key: "render",
     value: function render() {
+      var _outer;
+
       var style = {
-        outer: {
+        outer: (_outer = {
+          display: "inline-block",
+          verticalAlign: "top",
           fontSize: "0.8rem",
           minHeight: "15px",
-          verticalAlign: "top",
-          boxSizing: "border-box",
-          marginTop: "8px",
-          paddingBottom: "8px"
-        },
+          marginTop: "20px"
+        }, _defineProperty(_outer, "verticalAlign", "top"), _defineProperty(_outer, "boxSizing", "border-box"), _defineProperty(_outer, "paddingBottom", "8px"), _outer),
         inner: {
           // textAlign: "center",
           // margin: "auto"
@@ -23515,7 +23518,7 @@ var StateSwitch = function (_React$Component3) {
       var color = "";
       for (var i = 0; i < types.length; i++) {
         if (types[i] == this.props.switch) {
-          color = "#f17e33";
+          color = "#ca0004";
         } else {
           color = "#1d1d1d";
         }
@@ -23583,18 +23586,18 @@ var ExampleApp = function (_React$Component4) {
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(Dropdown, {
-          selected: this.state.weightKey,
-          list: ["ug1314", "g1314", "ug1415", "g1415", "ug1516", "g1516"],
-          handleChange: this.updateWeightKey.bind(this)
-        }),
         _react2.default.createElement(_index2.default, {
           data: data,
           titleKey: "region",
           weightKey: this.state.weightKey,
           IDKey: "code",
           scale: this.state.scale,
-          colorRange: ["#f17e33", "#fdf4ee"]
+          colorRange: ["#ca0004", "#f1e8e8"]
+        }),
+        _react2.default.createElement(Dropdown, {
+          selected: this.state.weightKey,
+          list: ["ug1314", "g1314", "ug1415", "g1415", "ug1516", "g1516"],
+          handleChange: this.updateWeightKey.bind(this)
         }),
         _react2.default.createElement(StateSwitch, {
           name: "Scale",
