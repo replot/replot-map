@@ -10205,8 +10205,6 @@ var Coloring = function () {
         });
       }
 
-      console.log(saida);
-
       return saida;
     }
   }, {

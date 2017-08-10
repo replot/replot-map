@@ -120,8 +120,6 @@ class Coloring {
       })
   	}
 
-    console.log(saida)
-
   	return saida
   }
 
