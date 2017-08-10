@@ -1,56 +1,50 @@
 import React from "react"
-import Mapping from "./mapping.jsx"
-import Coloring from "./coloring.jsx"
+import getMap from "./mapping.jsx"
 
 class Map extends React.Component {
-
-  constructor(props){
-      super(props)
-      // enhcance this part to support more than one country
-      this.state = {
-          countryName : this.props.data[0][this.props.countryKey],
-          }
-      }
 
   extractValues() {
     // extrac the values and keys to create colors
     let data = []
-    for (let index in this.props.data){
+    for (let i = 0; i < this.props.data.length; i ++){
       data.push({
-      area: this.props.data[index][this.props.areaKey],
-      value: this.props.data[index][this.props.valueKey]
-        })
-      }
+        area: this.props.data[i][this.props.IDKey],
+        weight: this.props.data[i][this.props.weightKey]
+      })
+    }
     return data
   }
 
   render() {
 
+    let region = this.props.data[0][this.props.titleKey]
+
     // call this function only in case of colorLinear
     let data =  this.extractValues()
 
     // call this function to get colors
-    let colors = new Coloring(data, this.props.valueKey, this.props.colorKey, this.props.colorLinear, this.props.colorCatgories)
-    colors = colors.generate()
+    // let colors = new Coloring(data, this.props.valueKey, this.props.colorKey, this.props.colorLinear, this.props.colorCatgories)
+    // colors = colors.generate()
 
-    let map = new Mapping(colors)
-    let curMap = map.getMap(this.state.countryName)
- 
+    let map = getMap(region, data, this.props.IDKey, this.props.weightKey, this.props.scale,
+      this.props.colorKey, this.props.colorLinear, this.props.colorCatgories)
+
     return(
         <div>
-          {curMap}
+          {map}
         </div>
       )
   }
 }
 
 Map.defaultProps = {
-  countryKey: "country",
-  areaKey: "",
-  valueKey:"",
+  titleKey: "region",
+  IDKey: "",
+  weightKey:"",
   colorKey: "",
   colorLinear: [],
-  colorCatgories: ""
+  colorCatgories: "",
+  scale: "lin"
   // initialAnimation: true,
 }
 

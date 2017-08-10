@@ -1,21 +1,29 @@
 import React from "react"
 import US from "./countries/US.jsx"
 import Chile from "./countries/Chile.jsx"
+import World from "./countries/World.jsx"
 
-class Mapping {
-  constructor(colors){
-    this.colors = colors
+function getMap(region, data, IDKey, weightKey, scale, colorKey, colorLinear, colorCatgories) {
+
+  let curMap
+  if (region === "US") {
+    curMap = (
+      <US data={data} IDKey={IDKey} weightKey={weightKey} scale={scale}
+        colorKey={colorKey} colorLinear={colorLinear} colorCatgories={colorCatgories}/>
+    )
+  } else if (region === "Chile") {
+    curMap = (
+      <Chile data={data} IDKey={IDKey} weightKey={weightKey} scale={scale}
+        colorKey={colorKey} colorLinear={colorLinear} colorCatgories={colorCatgories}/>
+    )
+  } else if (region === "World") {
+    curMap = (
+    <World data={data} IDKey={IDKey} weightKey={weightKey} scale={scale}
+      colorKey={colorKey} colorLinear={colorLinear} colorCatgories={colorCatgories}/>
+    )
   }
 
-  getMap(country){
-    console.log(this.colors)
-    let mapping = { "US": <US colors={this.colors}/>, "Chile": <Chile colors={this.colors} /> }
-    let curMap = mapping[country]
-
-    return curMap
-  }
+  return curMap
 }
 
-// export const mapping = { "US": <US colors={this.colors}/>, "Chile": <Chile colors={this.colors} /> }
-
-export default Mapping
+export default getMap

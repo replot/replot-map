@@ -1,26 +1,46 @@
 
 class Coloring {
 
-  constructor (data, valueKey, colorKey, colorLinear, colorCatgories){
-    this.data = data
-    this.valueKey = valueKey
+  constructor (IDList, IDKey, weightKey, scale, data, colorKey, colorLinear, colorCatgories){
+    this.IDList = IDList
+    this.IDKey = IDKey
+    this.weightKey = weightKey
+    this.scale = scale
     this.colorKey = colorKey
     this.colorLinear = colorLinear
     this.colorCatgories = colorCatgories
+    this.data = data.sort(function compare(a,b) {
+      if (a.area < b.area) return -1
+      if (a.area > b.area) return 1
+      return 0
+    })
   }
 
   /* Chose the right function based on props */
   generate() {
     if(this.colorKey){}
     if(this.colorLinear){
-      /* Get the max and min of values  */
+      let range = this.getRange()
       // let count = this.getCount()
-      console.log(this.data)
       let count = 100
-      let colors = this.generateColor(this.colorLinear[0], this.colorLinear[1], count)
+      let colors = this.generateColor(this.colorLinear[0], this.colorLinear[1], count, range)
       return this.matchColorsToValues(colors)
     }
     if(this.colorCatgories){}
+  }
+
+  getRange(){
+    let max = this.data[0].weight
+    let min = this.data[0].weight
+    for (let dataPoint of this.data){
+      if (dataPoint.weight > max) {
+        max = dataPoint.weight
+      }
+      if (dataPoint.weight < min) {
+        min = dataPoint.weight
+      }
+    }
+    return {min: min, max: max}
   }
 
    hex (c) {
@@ -49,7 +69,7 @@ class Coloring {
     return color
   }
 
-   generateColor(colorStart,colorEnd,colorCount){
+   generateColor(colorStart,colorEnd,colorCount, weightRange){
 
   	// The beginning of your gradient
   	let start = this.convertToRGB (colorStart)
@@ -60,9 +80,20 @@ class Coloring {
   	// The number of colors to compute
   	let len = colorCount;
 
+
   	//Alpha blending amount
   	let alpha = 0.0
   	let saida = []
+    let weight, valueRatio, pow10
+    if (this.scale === "lin") {
+      valueRatio = (weightRange.max - weightRange.min) / colorCount
+    } else if (this.scale === "log") {
+      if (weightRange.min === 0) {
+        valueRatio = Math.log10(weightRange.max) / (colorCount-1)
+      } else {
+        valueRatio = (Math.log10(weightRange.max) - Math.log10(weightRange.min)) / (colorCount-1)
+      }
+    }
 
   	for (let i = 0; i < len; i++) {
   		let c = []
@@ -72,40 +103,60 @@ class Coloring {
   		c[1] = start[1] * alpha + (1 - alpha) * end[1]
   		c[2] = start[2] * alpha + (1 - alpha) * end[2]
 
+      if (this.scale === "lin") {
+        weight = parseFloat(((i+1) * valueRatio).toFixed(4))
+      } else if (this.scale === "log") {
+        if (weightRange.min === 0) {
+          pow10 = i * valueRatio
+        } else {
+          pow10 = Math.log10(weightRange.min) + i*valueRatio
+        }
+        weight = parseFloat((Math.pow(10,pow10)).toFixed(8))
+      }
+
   		saida.push({
         color: '#' + this.convertToHex(c),
-        value: i + 1
+        weight: weight
       })
   	}
+
+    console.log(saida)
 
   	return saida
   }
 
 
   matchColorsToValues(colors) {
-    let merged = []
-    let value = 0
+    let mapped = []
+    let area = {}
+    let weight = 0
+    let dataIndex = 0
 
-    for (let i = 0; i < this.data.length; i++) {
-        value = this.data[i].value
-        for (let j = 0; j < colors.length; j++) {
-            if (colors[j].value == Math.round(value)) {
-                  merged.push({
-                    value: value,
-                    key: this.data[i].area,
-                    color: colors[j].color
-                  })
-                }
-            }
+    for (let i = 0; i < this.IDList.length; i++) {
+      area = {}
+      if (this.IDList[i] === this.data[dataIndex].area) {
+        dataIndex += 1
+        weight = this.data[dataIndex-1].weight
+        for (let j = 0; j <= colors.length; j ++){
+          if (weight <= colors[j].weight) {
+            mapped.push({
+              weight: weight,
+              key: this.IDList[i],
+              color: colors[j].color
+            })
+            break
+          }
         }
+      } else {
+        mapped.push({
+          weight: 0,
+          key: this.IDList[i],
+          color: colors[0].color
+        })
+      }
+    }
 
-    merged.sort(function(a, b){
-    if(a.key < b.key) return -1
-    if(a.key > b.key) return 1
-    return 0
-    })
-
-      return merged
+    return mapped
   }
 
 }

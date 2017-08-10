@@ -1,20 +1,23 @@
-var path = require('path')
-
-module.exports = {
-  entry: path.resolve(__dirname, './example.jsx'),
-  module: {
-    loaders: [
-      {
-        test: /\.jsx$/,
-        loader: 'babel-loader',
-        query: {
-          'presets': ['es2015', 'react']
+module.exports = function() {
+  return {
+    entry: {
+      us: "./example.jsx",
+      world: "./example_world.jsx"
+    },
+    output: {
+      path: __dirname + "/static",
+      filename: "[name].bundle.js"
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.jsx$/,
+          loader: "babel-loader",
+          query: {
+            "presets": ["es2015", "react"]
+          }
         }
-      }
-    ]
-  },
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname)
+      ]
+    }
   }
-}
+};
