@@ -19,7 +19,7 @@ class Map extends React.Component {
 
     let region = this.props.data[0][this.props.titleKey]
 
-    // call this function only in case of colorLinear
+    // call this function only in case of colorRange
     let data =  this.extractValues()
 
     let map = getMap(region, data, this.props.IDKey, this.props.weightKey, this.props.scale,

@@ -84,6 +84,7 @@ class Coloring {
   	//Alpha blending amount
   	let alpha = 0.0
   	let saida = []
+    let minWeight = weightRange.min
     let weight, valueRatio, pow10
     if (this.scale === "lin") {
       valueRatio = (weightRange.max - weightRange.min) / (colorCount)
@@ -104,14 +105,14 @@ class Coloring {
   		c[2] = start[2] * alpha + (1 - alpha) * end[2]
 
       if (this.scale === "lin") {
-        weight = parseFloat(((i+1) * valueRatio).toFixed(4))
+        weight = parseFloat((minWeight + ((i+1) * valueRatio)).toFixed(4))
       } else if (this.scale === "log") {
         if (weightRange.min === 0) {
           pow10 = i * valueRatio
         } else {
           pow10 = Math.log10(weightRange.min) + i*valueRatio
         }
-        weight = parseFloat((Math.pow(10,pow10)).toFixed(8))
+        weight = parseFloat((minWeight + (Math.pow(10,pow10))).toFixed(8))
       }
 
   		saida.push({

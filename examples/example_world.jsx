@@ -1,7 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import Map from "../src/index.jsx"
-import World from "../src/countries/World.jsx"
 
 class Dropdown extends React.Component {
 
@@ -326,12 +325,6 @@ class ExampleApp extends React.Component {
 
     return (
       <div>
-        <StateSwitch
-          name="Scale"
-          states={["lin","log"]}
-          switch={this.state.scale}
-          updateFunc={this.updateScale.bind(this)}
-          />
         <Dropdown
           selected={this.state.weightKey}
           list={["ug1314", "g1314", "ug1415", "g1415", "ug1516", "g1516"]}
@@ -344,6 +337,12 @@ class ExampleApp extends React.Component {
           IDKey="code"
           scale={this.state.scale}
           colorRange={["#f17e33", "#fdf4ee"]}
+          />
+        <StateSwitch
+          name="Scale"
+          states={["lin","log"]}
+          switch={this.state.scale}
+          updateFunc={this.updateScale.bind(this)}
           />
       </div>
     )

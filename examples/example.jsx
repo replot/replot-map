@@ -150,10 +150,11 @@ class ExampleApp extends React.Component {
 
         <div style={{width:"70%", display:"inline-block", float:"left", paddingLeft:"50px"}}>
           <Map data={this.state.data}
-               countryKey="country"
-               areaKey="abbreviation"
-               valueKey="citizenship"
-               colorLinear={["#0f0f33", "#ffffff"]}
+               titleKey="country"
+               weightKey="citizenship"
+               IDKey="abbreviation"
+               scale="lin"
+               colorRange={["#0f0f33", "#ffffff"]}
              />
         </div>
       </div>
