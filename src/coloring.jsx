@@ -87,7 +87,7 @@ class Coloring {
     let minWeight = weightRange.min
     let weight, valueRatio, pow10
     if (this.scale === "lin") {
-      valueRatio = (weightRange.max - weightRange.min) / (colorCount)
+      valueRatio = (weightRange.max - weightRange.min) / (colorCount-1)
     } else if (this.scale === "log") {
       if (weightRange.min === 0) {
         valueRatio = Math.log10(weightRange.max) / (colorCount-1)
@@ -105,14 +105,14 @@ class Coloring {
   		c[2] = start[2] * alpha + (1 - alpha) * end[2]
 
       if (this.scale === "lin") {
-        weight = parseFloat((minWeight + ((i+1) * valueRatio)).toFixed(4))
+        weight = parseFloat((minWeight + ((i) * valueRatio)).toFixed(8))
       } else if (this.scale === "log") {
         if (weightRange.min === 0) {
           pow10 = i * valueRatio
         } else {
           pow10 = Math.log10(weightRange.min) + i*valueRatio
         }
-        weight = parseFloat((minWeight + (Math.pow(10,pow10))).toFixed(8))
+        weight = parseFloat((Math.pow(10,pow10)).toFixed(8))
       }
 
   		saida.push({
@@ -120,7 +120,6 @@ class Coloring {
         weight: weight
       })
   	}
-
   	return saida
   }
 
@@ -146,6 +145,7 @@ class Coloring {
             break
           }
         }
+
       } else {
         mapped.push({
           weight: 0,
