@@ -70,7 +70,7 @@ class Map extends React.Component {
     let data =  this.extractValues()
 
     let map = getMap(region, data, this.props.IDKey, this.props.weightKey, this.props.scale,
-      this.props.colorKey, this.props.colorRange, this.props.colorCatgories, this.props.width,
+      this.props.colorKey, this.props.colorRange, this.props.colorCatgories, this.props.width, this.props.height,
       this.activateTooltip.bind(this), this.deactivateTooltip.bind(this))
 
     return(
