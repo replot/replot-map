@@ -18,13 +18,13 @@ class Map extends React.Component {
     let newContents = "No data supplied"
     if (data) {
       if (this.props.tooltipContents){
-        newContents = this.props.tooltipContents()
+        newContents = this.props.tooltipContents(data)
       }
       else {
         newContents = (
           <div>
-            <span>{data[this.props.IDKey]}</span><br/>
-            <span>{data[this.props.weightKey]}</span>
+            <span>{this.props.IDKey}: {data[this.props.IDKey]}</span><br/>
+            <span>{this.props.weightKey}: {data[this.props.weightKey]}</span>
           </div>
         )
       }

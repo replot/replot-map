@@ -10736,7 +10736,7 @@ var Map = function (_React$Component) {
       var newContents = "No data supplied";
       if (data) {
         if (this.props.tooltipContents) {
-          newContents = this.props.tooltipContents();
+          newContents = this.props.tooltipContents(data);
         } else {
           newContents = _react2.default.createElement(
             "div",
@@ -10744,12 +10744,16 @@ var Map = function (_React$Component) {
             _react2.default.createElement(
               "span",
               null,
+              this.props.IDKey,
+              ": ",
               data[this.props.IDKey]
             ),
             _react2.default.createElement("br", null),
             _react2.default.createElement(
               "span",
               null,
+              this.props.weightKey,
+              ": ",
               data[this.props.weightKey]
             )
           );
