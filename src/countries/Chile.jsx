@@ -80,10 +80,4 @@ class Chile extends React.Component {
   }
 }
 
-// Chile.defaultProps = {
-//   width: 650,
-//   height: 750
-// }
-
-
 export default Chile
