@@ -1,7 +1,7 @@
 module.exports = function() {
   return {
     entry: {
-      us: "./example.jsx",
+      example: "./example.jsx",
       world: "./example_world.jsx",
       us_students: "./example_us_students.jsx"
     },

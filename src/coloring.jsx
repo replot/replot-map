@@ -130,18 +130,20 @@ class Coloring {
     let weight = 0
     let dataIndex = 0
 
+
     for (let i = 0; i < this.IDList.length; i++) {
       area = {}
-      if (this.IDList[i] === this.data[dataIndex].area) {
-        dataIndex += 1
-        weight = this.data[dataIndex-1].weight
+      if (dataIndex < this.data.length && this.IDList[i] === this.data[dataIndex].area) {
+        weight = this.data[dataIndex].weight
         for (let j = 0; j <= colors.length; j ++){
           if (weight <= colors[j].weight) {
             mapped.push({
               weight: weight,
               key: this.IDList[i],
-              color: colors[j].color
+              color: colors[j].color,
+              raw: this.data[dataIndex].raw
             })
+            dataIndex += 1
             break
           }
         }

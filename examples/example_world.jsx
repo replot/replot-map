@@ -329,7 +329,7 @@ class ExampleApp extends React.Component {
       <div>
         <Map
           data={data}
-          titleKey="region"
+          region="World"
           weightKey={this.state.weightKey}
           IDKey="code"
           scale={this.state.scale}
