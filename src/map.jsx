@@ -58,7 +58,6 @@ class Map extends React.Component {
         raw: this.props.data[i]
       })
     }
-    console.log(data)
     return data
   }
 

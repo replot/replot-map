@@ -10224,7 +10224,7 @@ var US = function (_React$Component) {
         null,
         _react2.default.createElement(
           "svg",
-          { width: 959 * scale, height: 593 * scale },
+          { width: 959 * xScale, height: 593 * yScale },
           _react2.default.createElement(
             "g",
             { transform: "scale(" + xScale + " " + yScale + ")" },
@@ -10436,7 +10436,7 @@ var World = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     "svg",
-                    { width: 1009 * scale, height: 651 * scale },
+                    { width: 1009 * xScale, height: 651 * yScale },
                     _react2.default.createElement(
                         "g",
                         { transform: "scale(" + xScale + " " + yScale + ")" },
@@ -10809,7 +10809,6 @@ var Map = function (_React$Component) {
           raw: this.props.data[i]
         });
       }
-      console.log(data);
       return data;
     }
   }, {
