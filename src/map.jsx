@@ -18,7 +18,7 @@ class Map extends React.Component {
     let newContents = "No data supplied"
     if (data) {
       if (this.props.tooltipContents){
-        newContents = this.props.tooltipContents(data)
+        newContents = this.props.tooltipContents(title, data)
       }
       else {
         newContents = (

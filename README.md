@@ -60,6 +60,7 @@ are provided, replot-map defaults to a white to black color gradient.
 
 #### Displaying text
 #### Tooltip
+Gets location name as well as all data associated with the location
 #### Initial Animation
 ​
 ​
