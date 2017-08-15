@@ -14,7 +14,7 @@ class Map extends React.Component {
     }
   }
 
-  activateTooltip(data) {
+  activateTooltip(data, title) {
     let newContents = "No data supplied"
     if (data) {
       if (this.props.tooltipContents){
@@ -23,7 +23,7 @@ class Map extends React.Component {
       else {
         newContents = (
           <div>
-            <span>{this.props.IDKey}: {data[this.props.IDKey]}</span><br/>
+            <span>Location: {title}</span><br/>
             <span>{this.props.weightKey}: {data[this.props.weightKey]}</span>
           </div>
         )
