@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import getMap from "./mapping.jsx"
 import {Tooltip} from "replot-core"
 
@@ -92,12 +93,24 @@ Map.defaultProps = {
   region: "World",
   IDKey: "ID",
   weightKey: "weight",
-  colorKey: "",
   colorRange: ["#000000", "#e8e8e8"],
-  colorCatgories: "",
   scale: "lin",
   tooltip: true
   // initialAnimation: true,
+}
+
+Map.propTypes = {
+  data: PropTypes.array.isRequired,
+  region: PropTypes.string,
+  IDKey: PropTypes.string,
+  weightKey: PropTypes.string,
+  colorKey: PropTypes.string,
+  colorRange: PropTypes.array,
+  colorCatgories: PropTypes.string,
+  scale: PropTypes.string,
+  tooltip: PropTypes.bool,
+  tooltipColor: PropTypes.string,
+  tooltipContents: PropTypes.func
 }
 
 export default Map
