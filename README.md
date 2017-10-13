@@ -1,6 +1,6 @@
 ## replot-map
 replot-map is designed to help you visualize your data in a map layout on the fly.  
-
+svg link: https://www.amcharts.com/svg-maps/
 ## Installation
 Only works with React projects. React must be installed separately.
 ```bash
