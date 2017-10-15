@@ -3,7 +3,8 @@ module.exports = function() {
     entry: {
       example: "./example.jsx",
       world: "./example_world.jsx",
-      us_students: "./example_us_students.jsx"
+      us_students: "./example_us_students.jsx",
+      japan: "./example_jp.jsx"
     },
     output: {
       path: __dirname + "/static",

@@ -1,5 +1,5 @@
 import React from "react"
-import Coloring from "../coloring.jsx"
+import Coloring from "../coloring_old.jsx"
 
 class World extends React.Component {
 

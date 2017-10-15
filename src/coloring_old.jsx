@@ -1,4 +1,3 @@
-
 class Coloring {
 
   constructor (IDList, IDKey, weightKey, scale, data, colorKey, colorRange, colorCatgories){
@@ -10,8 +9,8 @@ class Coloring {
     this.colorRange = colorRange
     this.colorCatgories = colorCatgories
     this.data = data.sort(function compare(a,b) {
-      if (a.weight < b.weight) return -1
-      if (a.weight > b.weight) return 1
+      if (a.area < b.area) return -1
+      if (a.area > b.area) return 1
       return 0
     })
   }
@@ -125,32 +124,41 @@ class Coloring {
 
 
   matchColorsToValues(colors) {
-    let idToColor = {}
-    let colorIndex = 0
-    let IDs = new Set(this.IDList)
+    let mapped = []
+    let area = {}
+    let weight = 0
+    let dataIndex = 0
 
-    for (let dataItem of this.data) {
-      let weight = dataItem.weight
-      while (weight > colors[colorIndex].weight) {
-        colorIndex++
+
+    for (let i = 0; i < this.IDList.length; i++) {
+      area = {}
+      if (dataIndex < this.data.length && this.IDList[i] === this.data[dataIndex].area) {
+        weight = this.data[dataIndex].weight
+        for (let j = 0; j <= colors.length; j ++){
+          if (weight <= colors[j].weight) {
+            mapped.push({
+              weight: weight,
+              key: this.IDList[i],
+              color: colors[j].color,
+              raw: this.data[dataIndex].raw
+            })
+            dataIndex += 1
+            break
+          }
+        }
+
+      } else {
+        mapped.push({
+          weight: 0,
+          key: this.IDList[i],
+          color: colors[0].color
+        })
       }
-      idToColor[dataItem.area] = {
-        weight: weight,
-        color: colors[colorIndex].color,
-        raw: dataItem.raw
-      }
-      IDs.delete(dataItem.area)
     }
 
-    // Handle IDs without supplied weights
-    for (let id of IDs.values()) {
-      idToColor[id] = {
-        color: colors[0].color
-      }
-    }
-
-    return idToColor
+    return mapped
   }
+
 }
 
 export default Coloring

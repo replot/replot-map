@@ -83,8 +83,7 @@ class ExampleApp extends React.Component {
         {ID: "MA", weight: 22},
         {ID: "RM", weight: 24},
         {ID: "TA", weight: 25},
-        {ID: "VS", weight : 26},
-
+        {ID: "VS", weight : 26}
       ]
     }
   }
