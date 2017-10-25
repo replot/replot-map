@@ -7,7 +7,7 @@ class Region extends React.Component {
     super(props)
     this.IDList = []
     this.IDDict = {}
-    for (let area of this.props.regionMap.svg.g.path) {
+    for (let area of this.props.paths.svg.g.path) {
       let shortId = area.id.replace(/(.+)-/,"") //Remove the country code.
       this.IDList.push(shortId)
       this.IDDict[shortId] = area.title
@@ -58,8 +58,8 @@ class Region extends React.Component {
     let legend = this.getLegend(colors)
 
     let paths = []
-    for (let i = 0; i < this.props.regionMap.svg.g.path.length; i++) {
-      let area = this.props.regionMap.svg.g.path[i]
+    for (let i = 0; i < this.props.paths.svg.g.path.length; i++) {
+      let area = this.props.paths.svg.g.path[i]
       let shortId = area.id.replace(/(.+)-/,"") //Remove the country code.
       paths.push(
         <path key={area.id} id={area.id} title={area.title} fill={mapColors[shortId].color}

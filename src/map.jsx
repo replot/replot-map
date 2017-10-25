@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import getMap from "./mapping.jsx"
 import {Tooltip} from "replot-core"
+import Region from "./Region.jsx"
 
 class Map extends React.Component {
 
@@ -69,9 +69,14 @@ class Map extends React.Component {
     // call this function only in case of colorRange
     let data =  this.extractValues()
 
-    let map = getMap(region, data, this.props.IDKey, this.props.weightKey, this.props.scale,
-      this.props.colorKey, this.props.colorRange, this.props.colorCatgories, this.props.width, this.props.height,
-      this.activateTooltip.bind(this), this.deactivateTooltip.bind(this))
+    let map = <Region
+      paths={this.props.paths} width={this.props.width} height={this.props.height}
+      data={data} IDKey={this.props.IDKey} weightKey={this.props.weightKey}
+      scale={this.props.scale} colorKey={this.props.colorKey}
+      colorRange={this.props.colorRange} colorCatgories={this.props.colorCatgories}
+      activateTooltip={this.activateTooltip.bind(this)}
+      deactivateTooltip={this.deactivateTooltip.bind(this)}
+      />
 
     return(
         <div onMouseMove={this.props.tooltip ? this.updateMousePos.bind(this) : null}>
