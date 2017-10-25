@@ -17,14 +17,20 @@ import getAustria from "./maps/austria.js"
 import getAzerbaijan from "./maps/azerbaijan.js"
 import getChile from "./maps/chile.js"
 import getJapan from "./maps/japan.js"
+import USA from "./maps/usaHigh.js"
 
 function getMap(region, data, IDKey, weightKey, scale, colorKey, colorRange, colorCatgories, width, height, activateTooltip, deactivateTooltip) {
   let curMap
   if (region === "US") {
     curMap = (
-      <US width={width} height={height} data={data} IDKey={IDKey} weightKey={weightKey} scale={scale}
+      <Region regionMap={USA}
+        width={width} height={height} data={data} IDKey={IDKey} weightKey={weightKey} scale={scale}
         colorKey={colorKey} colorRange={colorRange} colorCatgories={colorCatgories}
         activateTooltip={activateTooltip} deactivateTooltip={deactivateTooltip}/>
+    // curMap = (
+      // <US width={width} height={height} data={data} IDKey={IDKey} weightKey={weightKey} scale={scale}
+      //   colorKey={colorKey} colorRange={colorRange} colorCatgories={colorCatgories}
+      //   activateTooltip={activateTooltip} deactivateTooltip={deactivateTooltip}/>
     )
   } else if (region === "World") {
     curMap = (
