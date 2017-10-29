@@ -1,3 +1,4 @@
 import Map from "./map.jsx"
+import Table from "./Table.jsx"
 
-export default Map
+export {Map, Table}

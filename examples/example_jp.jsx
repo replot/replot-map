@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import Map from "../src/index.jsx"
+import {Map} from "../src/index.jsx"
 import JAPAN from "./samples/Japan.js"
 
 class KeyValueRow extends React.Component {
