@@ -12,6 +12,17 @@ class Region extends React.Component {
       this.IDList.push(shortId)
       this.IDDict[shortId] = area.title
     }
+    this.state = {
+      height: 0,
+      scale: 1
+    }
+  }
+
+  componentDidMount() {
+    let bbox = this.svgMap.getBBox();
+    let height = bbox.height;
+    let scale = this.props.width/bbox.width;
+    this.setState({ height : height, scale: scale });
   }
 
   getLegend(colors){
@@ -39,20 +50,6 @@ class Region extends React.Component {
   }
 
   render () {
-
-    let xScale = 1
-    let yScale = 1
-    if (this.props.width && this.props.height) {
-      xScale = this.props.width / 650
-      yScale = this.props.height / 725
-    } else if (this.props.width) {
-      xScale = this.props.width / 650
-      yScale = xScale
-    } else if (this.props.height) {
-      yScale = this.props.height / 725
-      xScale = yScale
-    }
-
     let colors = new Coloring(this.IDList, this.props.IDKey, this.props.weightKey, this.props.scale, this.props.data, this.props.colorKey, this.props.colorRange, this.props.colorCatgories)
     let mapColors = colors.generate()
     let legend = this.getLegend(colors)
@@ -71,8 +68,12 @@ class Region extends React.Component {
 
     return(
       <div>
-        <svg width={650*xScale} height={725*yScale}>
-          <g transform={`scale(${xScale} ${yScale})`}>
+        <svg
+          ref={(node) => this.svgMap = node}
+          width={this.props.width}
+          height={this.state.height * this.state.scale}
+        >
+          <g transform={`scale(${this.state.scale})`}>
             {paths}
             {legend}
           </g>

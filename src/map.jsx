@@ -70,7 +70,7 @@ class Map extends React.Component {
     let data =  this.extractValues()
 
     let map = <Region
-      paths={this.props.paths} width={this.props.width} height={this.props.height}
+      paths={this.props.paths} width={this.props.width}
       data={data} IDKey={this.props.IDKey} weightKey={this.props.weightKey}
       scale={this.props.scale} colorKey={this.props.colorKey}
       colorRange={this.props.colorRange} colorCatgories={this.props.colorCatgories}
@@ -100,6 +100,7 @@ Map.defaultProps = {
   weightKey: "weight",
   colorRange: ["#000000", "#e8e8e8"],
   scale: "lin",
+  width: 650,
   tooltip: true
   // initialAnimation: true,
 }
@@ -113,6 +114,7 @@ Map.propTypes = {
   colorRange: PropTypes.array,
   colorCatgories: PropTypes.string,
   scale: PropTypes.string,
+  width: PropTypes.number,
   tooltip: PropTypes.bool,
   tooltipColor: PropTypes.string,
   tooltipContents: PropTypes.func
