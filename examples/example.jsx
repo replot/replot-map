@@ -71,20 +71,20 @@ class ExampleApp extends React.Component {
     super(props)
     this.state = {
       data: [
-        {ID: "AI", weight: 12},
-        {ID: "AN", weight: 13},
-        {ID: "AP", weight: 14},
-        {ID: "AR", weight: 15},
-        {ID: "AT", weight: 16},
-        {ID: "BI", weight: 17},
-        {ID: "CO", weight: 18},
-        {ID: "LI", weight: 19},
-        {ID: "LL", weight: 20},
-        {ID: "LR", weight: 21},
-        {ID: "MA", weight: 22},
-        {ID: "RM", weight: 24},
-        {ID: "TA", weight: 25},
-        {ID: "VS", weight : 26}
+        {ID: "CL-AI", weight: 12},
+        {ID: "CL-AN", weight: 13},
+        {ID: "CL-AP", weight: 14},
+        {ID: "CL-AR", weight: 15},
+        {ID: "CL-AT", weight: 16},
+        {ID: "CL-BI", weight: 17},
+        {ID: "CL-CO", weight: 18},
+        {ID: "CL-LI", weight: 19},
+        {ID: "CL-LL", weight: 20},
+        {ID: "CL-LR", weight: 21},
+        {ID: "CL-MA", weight: 22},
+        {ID: "CL-RM", weight: 24},
+        {ID: "CL-TA", weight: 25},
+        {ID: "CL-VS", weight : 26}
       ]
     }
   }

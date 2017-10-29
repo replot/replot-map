@@ -8,9 +8,8 @@ class Region extends React.Component {
     this.IDList = []
     this.IDDict = {}
     for (let area of this.props.paths) {
-      let shortId = area.id.replace(/(.+)-/,"") //Remove the country code.
-      this.IDList.push(shortId)
-      this.IDDict[shortId] = area.title
+      this.IDList.push(area.id)
+      this.IDDict[area.id] = area.title
     }
     this.state = {
       height: 0,
@@ -57,10 +56,9 @@ class Region extends React.Component {
     let paths = []
     for (let i = 0; i < this.props.paths.length; i++) {
       let area = this.props.paths[i]
-      let shortId = area.id.replace(/(.+)-/,"") //Remove the country code.
       paths.push(
-        <path key={area.id} id={area.id} title={area.title} fill={mapColors[shortId].color}
-          onMouseOver={this.props.activateTooltip.bind(this, mapColors[shortId].raw, this.IDDict[shortId])}
+        <path key={area.id} id={area.id} title={area.title} fill={mapColors[area.id].color}
+          onMouseOver={this.props.activateTooltip.bind(this, mapColors[area.id].raw, this.IDDict[area.id])}
           onMouseOut={this.props.deactivateTooltip.bind(this)}
           d={area.d} />
       )
