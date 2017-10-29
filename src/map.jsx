@@ -63,9 +63,6 @@ class Map extends React.Component {
   }
 
   render() {
-
-    let region = this.props.region
-
     // call this function only in case of colorRange
     let data =  this.extractValues()
 
@@ -95,7 +92,6 @@ class Map extends React.Component {
 }
 
 Map.defaultProps = {
-  region: "World",
   IDKey: "ID",
   weightKey: "weight",
   colorRange: ["#000000", "#e8e8e8"],
@@ -107,7 +103,7 @@ Map.defaultProps = {
 
 Map.propTypes = {
   data: PropTypes.array.isRequired,
-  region: PropTypes.string,
+  paths: PropTypes.arrayOf(PropTypes.object).isRequired,
   IDKey: PropTypes.string,
   weightKey: PropTypes.string,
   colorKey: PropTypes.string,
