@@ -12,16 +12,25 @@ class Region extends React.Component {
       this.IDDict[area.id] = area.title
     }
     this.state = {
-      height: 0,
+      initialHeight: 0,
+      initialWidth: 0,
       scale: 1
     }
   }
 
   componentDidMount() {
-    let bbox = this.svgMap.getBBox();
-    let height = bbox.height;
-    let scale = this.props.width/bbox.width;
-    this.setState({ height : height, scale: scale });
+    let bbox = this.svgMap.getBBox()
+    let height = bbox.height
+    let width = bbox.width
+    let scale = this.props.width/width
+    this.setState({ initialHeight : height, initialWidth: width, scale: scale })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.width !== this.props.width) {
+      let scale = this.props.width/this.state.initialWidth
+      this.setState({ scale: scale })
+    }
   }
 
   getLegend(colors){
@@ -69,7 +78,7 @@ class Region extends React.Component {
         <svg
           ref={(node) => this.svgMap = node}
           width={this.props.width}
-          height={this.state.height * this.state.scale}
+          height={this.state.initialHeight * this.state.scale}
         >
           <g transform={`scale(${this.state.scale})`}>
             {paths}
