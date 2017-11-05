@@ -6,10 +6,8 @@ class Region extends React.Component {
   constructor(props) {
     super(props)
     this.IDList = []
-    this.IDDict = {}
     for (let area of this.props.paths) {
-      this.IDList.push(area.id)
-      this.IDDict[area.id] = area.title
+      this.IDList.push(area[this.props.pathIDKey])
     }
     this.state = {
       height: 0,
@@ -56,9 +54,11 @@ class Region extends React.Component {
     let paths = []
     for (let i = 0; i < this.props.paths.length; i++) {
       let area = this.props.paths[i]
+      let id = area[this.props.pathIDKey]
+      let title = area[this.props.pathTitleKey]
       paths.push(
-        <path key={area.id} id={area.id} title={area.title} fill={mapColors[area.id].color}
-          onMouseOver={this.props.activateTooltip.bind(this, mapColors[area.id].raw, this.IDDict[area.id])}
+        <path key={id} id={id} title={title} fill={mapColors[id].color}
+          onMouseOver={this.props.activateTooltip.bind(this, mapColors[id].raw, title)}
           onMouseOut={this.props.deactivateTooltip.bind(this)}
           d={area.d} />
       )
