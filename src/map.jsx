@@ -68,6 +68,7 @@ class Map extends React.Component {
 
     let map = <Region
       paths={this.props.paths} width={this.props.width}
+      pathIDKey={this.props.pathIDKey} pathTitleKey={this.props.pathTitleKey}
       data={data} IDKey={this.props.IDKey} weightKey={this.props.weightKey}
       scale={this.props.scale} colorKey={this.props.colorKey}
       colorRange={this.props.colorRange} colorCatgories={this.props.colorCatgories}
@@ -94,6 +95,8 @@ class Map extends React.Component {
 Map.defaultProps = {
   IDKey: "ID",
   weightKey: "weight",
+  pathIDKey: "id",
+  pathTitleKey: "title",
   colorRange: ["#000000", "#e8e8e8"],
   scale: "lin",
   width: 650,
@@ -106,6 +109,8 @@ Map.propTypes = {
   paths: PropTypes.arrayOf(PropTypes.object).isRequired,
   IDKey: PropTypes.string,
   weightKey: PropTypes.string,
+  pathIDKey: PropTypes.string,
+  pathTitleKey: PropTypes.string,
   colorKey: PropTypes.string,
   colorRange: PropTypes.array,
   colorCatgories: PropTypes.string,
