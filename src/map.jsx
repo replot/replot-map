@@ -68,6 +68,7 @@ class Map extends React.Component {
 
     let map = <Region
       paths={this.props.paths} width={this.props.width}
+      zoomIDKey={this.props.zoomIDKey} zoomScale={this.props.zoomScale}
       pathIDKey={this.props.pathIDKey} pathTitleKey={this.props.pathTitleKey}
       data={data} IDKey={this.props.IDKey} weightKey={this.props.weightKey}
       scale={this.props.scale} colorKey={this.props.colorKey}
@@ -116,6 +117,8 @@ Map.propTypes = {
   colorCatgories: PropTypes.string,
   scale: PropTypes.string,
   width: PropTypes.number,
+  zoomIDKey: PropTypes.string,
+  zoomScale: PropTypes.number,
   tooltip: PropTypes.bool,
   tooltipColor: PropTypes.string,
   tooltipContents: PropTypes.func

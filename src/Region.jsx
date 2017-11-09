@@ -21,12 +21,20 @@ class Region extends React.Component {
     let height = bbox.height
     let width = bbox.width
     let scale = this.props.width/width
+    if (this.props.zoomScale) {
+      scale *= this.props.zoomScale
+    }
     this.setState({ initialHeight : height, initialWidth: width, scale: scale })
   }
 
+  // Prop change - Respond if width, zoomIDKey, or zoomScale changes.
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.width !== this.props.width) {
+    if (prevProps.width !== this.props.width ||
+      prevProps.zoomScale !== this.props.zoomScale) {
       let scale = this.props.width/this.state.initialWidth
+      if (this.props.zoomScale) {
+        scale *= this.props.zoomScale
+      }
       this.setState({ scale: scale })
     }
   }
