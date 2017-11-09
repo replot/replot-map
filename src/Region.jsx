@@ -12,19 +12,22 @@ class Region extends React.Component {
     this.state = {
       initialHeight: 0,
       initialWidth: 0,
+      currentHeight: 0,
       scale: 1
     }
   }
 
   componentDidMount() {
     let bbox = this.svgMap.getBBox()
-    let height = bbox.height
-    let width = bbox.width
-    let scale = this.props.width/width
+    let initialHeight = bbox.height
+    let initialWidth = bbox.width
+    let scale = this.props.width/initialWidth
+    let currentHeight = initialHeight * scale
     if (this.props.zoomScale) {
       scale *= this.props.zoomScale
     }
-    this.setState({ initialHeight : height, initialWidth: width, scale: scale })
+    this.setState({ initialHeight: initialHeight, initialWidth: initialWidth,
+      currentHeight: currentHeight, scale: scale })
   }
 
   // Prop change - Respond if width, zoomIDKey, or zoomScale changes.
@@ -32,10 +35,11 @@ class Region extends React.Component {
     if (prevProps.width !== this.props.width ||
       prevProps.zoomScale !== this.props.zoomScale) {
       let scale = this.props.width/this.state.initialWidth
+      let currentHeight = this.state.initialHeight * scale
       if (this.props.zoomScale) {
         scale *= this.props.zoomScale
       }
-      this.setState({ scale: scale })
+      this.setState({ currentHeight: currentHeight, scale: scale })
     }
   }
 
@@ -86,7 +90,7 @@ class Region extends React.Component {
         <svg
           ref={(node) => this.svgMap = node}
           width={this.props.width}
-          height={this.state.initialHeight * this.state.scale}
+          height={this.state.currentHeight}
         >
           <g transform={`scale(${this.state.scale})`}>
             {paths}
