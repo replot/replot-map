@@ -9,38 +9,66 @@ class Region extends React.Component {
     for (let area of this.props.paths) {
       this.IDList.push(area[this.props.pathIDKey])
     }
+    this.zoomPath = null
     this.state = {
       initialHeight: 0,
       initialWidth: 0,
       currentHeight: 0,
+      translateX: 0,
+      translateY: 0,
       scale: 1
     }
   }
 
   componentDidMount() {
-    let bbox = this.svgMap.getBBox()
-    let initialHeight = bbox.height
-    let initialWidth = bbox.width
-    let scale = this.props.width/initialWidth
-    let currentHeight = initialHeight * scale
+    let mapBBox = this.svgMap.getBBox()
+    let scale = this.props.width/mapBBox.width
+    let currentHeight = mapBBox.height * scale
+
     if (this.props.zoomScale) {
       scale *= this.props.zoomScale
     }
-    this.setState({ initialHeight: initialHeight, initialWidth: initialWidth,
-      currentHeight: currentHeight, scale: scale })
+
+    let translations = this.getTranslations(this.props.width, currentHeight, scale)
+    let translateX = translations[0]
+    let translateY = translations[1]
+
+    this.setState({ initialHeight: mapBBox.height, initialWidth: mapBBox.width,
+      currentHeight: currentHeight, scale: scale,
+      translateX: translateX, translateY: translateY })
   }
 
   // Prop change - Respond if width, zoomIDKey, or zoomScale changes.
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.width !== this.props.width ||
-      prevProps.zoomScale !== this.props.zoomScale) {
+      prevProps.zoomScale !== this.props.zoomScale ||
+      prevProps.zoomIDKey !== this.props.zoomIDKey) {
+
       let scale = this.props.width/this.state.initialWidth
       let currentHeight = this.state.initialHeight * scale
+
       if (this.props.zoomScale) {
         scale *= this.props.zoomScale
       }
-      this.setState({ currentHeight: currentHeight, scale: scale })
+
+      let translations = this.getTranslations(this.props.width, currentHeight, scale)
+      let translateX = translations[0]
+      let translateY = translations[1]
+
+      this.setState({ currentHeight: currentHeight, scale: scale,
+        translateX: translateX, translateY: translateY })
     }
+  }
+
+  getTranslations(width, height, scale) {
+    if (this.props.zoomIDKey && this.zoomPath) {
+      // If zoomID is specified, translate the map to center on zoomID.
+      let pathBBox = this.zoomPath.getBBox()
+      let pathMidX = (pathBBox.x + pathBBox.width / 2) * scale
+      let pathMidY = (pathBBox.y + pathBBox.height / 2) * scale
+      return [(width / 2) - pathMidX, (height / 2) - pathMidY] //[x, y]
+    }
+    return [0, 0] //No translations needed.
   }
 
   getLegend(colors){
@@ -77,8 +105,10 @@ class Region extends React.Component {
       let area = this.props.paths[i]
       let id = area[this.props.pathIDKey]
       let title = area[this.props.pathTitleKey]
+      let ref = this.props.zoomIDKey && id === this.props.zoomIDKey ?
+        (node) => this.zoomPath = node : null
       paths.push(
-        <path key={id} id={id} title={title} fill={mapColors[id].color}
+        <path key={id} id={id} title={title} ref={ref} fill={mapColors[id].color}
           onMouseOver={this.props.activateTooltip.bind(this, mapColors[id].raw, title)}
           onMouseOut={this.props.deactivateTooltip.bind(this)}
           d={area.d} />
@@ -92,7 +122,8 @@ class Region extends React.Component {
           width={this.props.width}
           height={this.state.currentHeight}
         >
-          <g transform={`scale(${this.state.scale})`}>
+          <g transform={`translate(${this.state.translateX},${this.state.translateY}),
+            scale(${this.state.scale})`}>
             {paths}
             {legend}
           </g>
