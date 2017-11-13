@@ -1,5 +1,6 @@
 import React from "react"
 import Coloring from "./coloring.jsx"
+import Humanize from "humanize-plus"
 
 class Region extends React.Component {
 
@@ -79,13 +80,17 @@ class Region extends React.Component {
         <rect key={"rect" + i} x={i*40} y={8} height={20} width={40} fill={colors.colorGradient[i*10].color}/>
       )
       if (i%2 === 0) {
+        let value = parseFloat(colors.colorGradient[i*10].weight.toFixed(2))
+        let printValue = this.humanizeValue(value)
         legend.push(
-          <text key={"label" + i} x={i*40} y={0} textAnchor="middle">{parseFloat(colors.colorGradient[i*10].weight.toFixed(2))}</text>
+          <text key={"label" + i} x={i*40} y={0} textAnchor="middle">{printValue}</text>
         )
       }
     }
+    let value = parseFloat(colors.colorGradient[99].weight.toFixed(2))
+    let printValue = this.humanizeValue(value)
     legend.push(
-      <text key={"endLabel"} x={400} y={0} textAnchor="middle">{parseFloat(colors.colorGradient[99].weight.toFixed(2))}</text>
+      <text key={"endLabel"} x={400} y={0} textAnchor="middle">{printValue}</text>
     )
 
     return (
@@ -93,6 +98,20 @@ class Region extends React.Component {
         {legend}
       </g>
     )
+  }
+
+  humanizeValue(value) {
+    if (value < 1 && value > -1){
+      if (this.props.scale == "lin") {
+        return +value.toFixed(3)
+      } else if (this.props.scale == "log") {
+        return +value.toFixed(5)
+      }
+    } else if (value < 1000 && value > -1000){
+      return +value.toFixed(1)
+    } else {
+      return Humanize.compactInteger(value, 1)
+    }
   }
 
   render () {
