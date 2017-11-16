@@ -93,11 +93,7 @@ class Region extends React.Component {
       <text key={"endLabel"} x={400} y={0} textAnchor="middle">{printValue}</text>
     )
 
-    return (
-      <g transform="translate(30, 675)">
-        {legend}
-      </g>
-    )
+    return legend
   }
 
   humanizeValue(value) {
@@ -144,6 +140,8 @@ class Region extends React.Component {
           <g transform={`translate(${this.state.translateX},${this.state.translateY}),
             scale(${this.state.scale})`}>
             {paths}
+          </g>
+          <g transform={`translate(${30},${this.state.currentHeight-50})`}>
             {legend}
           </g>
         </svg>
