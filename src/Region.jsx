@@ -73,24 +73,37 @@ class Region extends React.Component {
   }
 
   getLegend(colors){
+    let HEIGHT = 15
+    let WIDTH = 30
+    let FONT_SIZE = 14
+    let FONT_HEIGHT = 6
+    let PADDING = 20
+    let BACKGROUND = "#ffffff"
+    let TEXT_COLOR = "#000000"
+
     let legend = []
+    legend.push(
+      <rect key="background" x={-PADDING} y={-PADDING}
+        height={FONT_HEIGHT+HEIGHT+PADDING*1.5} width={WIDTH*10+PADDING*2}
+        fill={BACKGROUND} fillOpacity="0.5"/>
+    )
 
     for (let i = 0; i < 10; i++) {
       legend.push(
-        <rect key={"rect" + i} x={i*40} y={8} height={20} width={40} fill={colors.colorGradient[i*10].color}/>
+        <rect key={"rect" + i} x={i*WIDTH} y={FONT_HEIGHT} height={HEIGHT} width={WIDTH} fill={colors.colorGradient[i*10].color}/>
       )
       if (i%2 === 0) {
         let value = parseFloat(colors.colorGradient[i*10].weight.toFixed(2))
         let printValue = this.humanizeValue(value)
         legend.push(
-          <text key={"label" + i} x={i*40} y={0} textAnchor="middle">{printValue}</text>
+          <text key={"label" + i} x={i*WIDTH} y={0} fontSize={FONT_SIZE} fill={TEXT_COLOR} textAnchor="middle">{printValue}</text>
         )
       }
     }
     let value = parseFloat(colors.colorGradient[99].weight.toFixed(2))
     let printValue = this.humanizeValue(value)
     legend.push(
-      <text key={"endLabel"} x={400} y={0} textAnchor="middle">{printValue}</text>
+      <text key={"endLabel"} x={10*WIDTH} y={0} fontSize={FONT_SIZE} fill={TEXT_COLOR} textAnchor="middle">{printValue}</text>
     )
 
     return legend
