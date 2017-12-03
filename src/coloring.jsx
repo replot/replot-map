@@ -131,7 +131,7 @@ class Coloring {
 
     for (let dataItem of this.data) {
       let weight = dataItem.weight
-      while (weight > colors[colorIndex].weight) {
+      while (colorIndex < 99 && weight > colors[colorIndex].weight) {
         colorIndex++
       }
       idToColor[dataItem.area] = {
