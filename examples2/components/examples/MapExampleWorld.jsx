@@ -130,8 +130,16 @@ class MapExampleWorld extends React.Component {
             {region:"World", country:"Zambia", code:"ZM", ug1314:3, g1314:0, tot1314:3, ug1415:3, g1415:0, tot1415:3, ug1516:1, g1516:0, tot1516:1, population:16591390, gdp:19551, pop1516:0.602722255, gdp1516:5.114827886},
             {region:"World", country:"Zimbabwe", code:"ZW", ug1314:4, g1314:0, tot1314:4, ug1415:2, g1415:1, tot1415:3, ug1516:3, g1516:1, tot1516:4, population:16150360, gdp:16289, pop1516:2.476724977, gdp1516:24.55644914}
           ]},
-          // {optionName: "width", prefecture: "Width", optionType: "field", input: "string", initialValue: "98%"},
-          // {optionName: "width", prefecture: "Width", optionType: "field", input: "number", initialValue: 450},
+          {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 700},
+          {optionName: "colorRangeLow", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
+          {optionName: "colorRangeHigh", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
+          {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
+          {optionName: "zoomScale", name: "Zoom Scale", optionType: "field", input: "number", initialValue: 1},
+          {optionName: "zoomIDKey", name: "Zoom Focus (Code)", optionType: "field", input: "string", initialValue: "N/A"},
+          {optionName: "tooltip", name: "Tooltip", optionType: "bool", initialValue: true},
+          {optionName: "tooltipColor", name: "Tooltip Color", optionType: "state", states:["dark","light"], initialValue: "dark"},
+          {optionName: "IDKey", name: "ID", optionType: "hidden", initialValue: "code"},
+          {optionName: "weightKey", name: "Weight", optionType: "hidden", initialValue: "population"},
       ]
     }
   }
@@ -154,8 +162,7 @@ class MapExampleWorld extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           palette={this.props.palette}>
           <Map data={this.state.optionList[0].initialValue}
-            paths={WORLD.svg.g.path} weightKey="population" IDKey="code"
-            colorRange={["#225588", "#ffffff"]}/>
+            paths={WORLD.svg.g.path}/>
         </ComponentContainer>
       </div>
     )

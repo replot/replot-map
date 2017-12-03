@@ -53,8 +53,16 @@ class MapExampleIndia extends React.Component {
             {code: "IN-UT", population: 10116752, area: "Uttarakhand"},
             {code: "IN-WB", population: 91347736, area: "West Bengal"},
           ]},
-          // {optionName: "width", prefecture: "Width", optionType: "field", input: "string", initialValue: "98%"},
-          // {optionName: "width", prefecture: "Width", optionType: "field", input: "number", initialValue: 450},
+          {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 700},
+          {optionName: "colorRangeLow", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
+          {optionName: "colorRangeHigh", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
+          {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
+          {optionName: "zoomScale", name: "Zoom Scale", optionType: "field", input: "number", initialValue: 1},
+          {optionName: "zoomIDKey", name: "Zoom Focus (Code)", optionType: "field", input: "string", initialValue: "N/A"},
+          {optionName: "tooltip", name: "Tooltip", optionType: "bool", initialValue: true},
+          {optionName: "tooltipColor", name: "Tooltip Color", optionType: "state", states:["dark","light"], initialValue: "dark"},
+          {optionName: "IDKey", name: "ID", optionType: "hidden", initialValue: "code"},
+          {optionName: "weightKey", name: "Weight", optionType: "hidden", initialValue: "population"},
       ]
     }
   }
@@ -77,8 +85,7 @@ class MapExampleIndia extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           palette={this.props.palette}>
           <Map data={this.state.optionList[0].initialValue}
-            paths={INDIA.svg.g.path} weightKey="population" IDKey="code"
-            colorRange={["#225588", "#ffffff"]}/>
+            paths={INDIA.svg.g.path}/>
         </ComponentContainer>
       </div>
     )
