@@ -66,20 +66,14 @@ class Map extends React.Component {
     // call this function only in case of colorRange
     let data =  this.extractValues()
 
-    let colorRange
-    if (this.props.colorRangeLow && this.props.colorRangeHigh) {
-      colorRange = [this.props.colorRangeLow, this.props.colorRangeHigh]
-    } else {
-      colorRange = this.props.colorRange
-    }
-
     let map = <Region
       paths={this.props.paths} width={this.props.width}
       zoomIDKey={this.props.zoomIDKey} zoomScale={this.props.zoomScale}
       pathIDKey={this.props.pathIDKey} pathTitleKey={this.props.pathTitleKey}
       data={data} IDKey={this.props.IDKey} weightKey={this.props.weightKey}
       scale={this.props.scale} colorKey={this.props.colorKey}
-      colorRange={colorRange} colorCatgories={this.props.colorCatgories}
+      colorRange={[this.props.colorRangeLow, this.props.colorRangeHigh]}
+      colorCatgories={this.props.colorCatgories}
       activateTooltip={this.activateTooltip.bind(this)}
       deactivateTooltip={this.deactivateTooltip.bind(this)}
       />
@@ -105,7 +99,8 @@ Map.defaultProps = {
   weightKey: "weight",
   pathIDKey: "id",
   pathTitleKey: "title",
-  colorRange: ["#000000", "#e8e8e8"],
+  colorRangeLow: "#000000",
+  colorRangeHigh: "#e8e8e8",
   scale: "lin",
   width: 650,
   tooltip: true
@@ -120,7 +115,6 @@ Map.propTypes = {
   pathIDKey: PropTypes.string,
   pathTitleKey: PropTypes.string,
   colorKey: PropTypes.string,
-  colorRange: PropTypes.array,
   colorRangeLow: PropTypes.string,
   colorRangeHigh: PropTypes.string,
   colorCatgories: PropTypes.string,
