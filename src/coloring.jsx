@@ -151,6 +151,18 @@ class Coloring {
 
     return idToColor
   }
+
+  colorToDarkness(hex) {
+    let color = this.convertToRGB(hex)
+    let darkness = 1 - (0.299 * color[0] + 0.587 * color[1] + 0.114 * color[2])/255
+    return darkness
+  }
+
+  isBackgroundDark() {
+    let colorA = this.colorToDarkness(this.colorRange[0])
+    let colorB = this.colorToDarkness(this.colorRange[1])
+    return Math.min(colorA, colorB) < 0.2 && Math.max(colorA, colorB) < 0.8
+  }
 }
 
 export default Coloring

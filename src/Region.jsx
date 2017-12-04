@@ -78,8 +78,8 @@ class Region extends React.Component {
     let FONT_SIZE = 14
     let FONT_HEIGHT = 6
     let PADDING = 20
-    let BACKGROUND = "#ffffff"
-    let TEXT_COLOR = "#000000"
+    let BACKGROUND = colors.isBackgroundDark() ? "#000000" : "#ffffff"
+    let TEXT_COLOR = colors.isBackgroundDark() ? "#ffffff" : "#000000"
 
     let legend = []
     legend.push(
