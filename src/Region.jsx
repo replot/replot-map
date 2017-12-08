@@ -128,8 +128,17 @@ class Region extends React.Component {
     let mapColors = colors.generate()
     let legend = this.getLegend(colors)
 
+    let correctionX = 0
+    let correctionY = 0
+    let startIndex = 0
+    if (this.props.paths[0].id === "correction") {
+      correctionX = this.props.paths[0].x
+      correctionY = this.props.paths[0].y
+      startIndex = 1
+    }
+
     let paths = []
-    for (let i = 0; i < this.props.paths.length; i++) {
+    for (let i = startIndex; i < this.props.paths.length; i++) {
       let area = this.props.paths[i]
       let id = area[this.props.pathIDKey]
       let title = area[this.props.pathTitleKey]
@@ -152,7 +161,7 @@ class Region extends React.Component {
         >
           <g transform={`translate(${this.state.translateX},${this.state.translateY}),
             scale(${this.state.scale})`}>
-            {paths}
+            <g transform={`translate(${correctionX},${correctionY})`}>{paths}</g>
           </g>
           <g transform={`translate(${30},${this.state.currentHeight-50})`}>
             {legend}
