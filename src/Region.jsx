@@ -73,19 +73,19 @@ class Region extends React.Component {
   }
 
   getLegend(colors){
-    let HEIGHT = 15
-    let WIDTH = 30
-    let FONT_SIZE = 14
-    let FONT_HEIGHT = 6
-    let PADDING = 20
-    let BACKGROUND = colors.isBackgroundDark() ? "#000000" : "#ffffff"
-    let TEXT_COLOR = colors.isBackgroundDark() ? "#ffffff" : "#000000"
+    const HEIGHT = 15
+    const WIDTH = 30
+    const FONT_SIZE = 14
+    const FONT_HEIGHT = 6
+    const PADDING = 20
+    let background = colors.isBackgroundDark() ? "#000000" : "#ffffff"
+    let text_color = colors.isBackgroundDark() ? "#ffffff" : "#000000"
 
     let legend = []
     legend.push(
       <rect key="background" x={-PADDING} y={-PADDING}
         height={FONT_HEIGHT+HEIGHT+PADDING*1.5} width={WIDTH*10+PADDING*2}
-        fill={BACKGROUND} fillOpacity="0.5"/>
+        fill={background} fillOpacity="0.5"/>
     )
 
     for (let i = 0; i < 10; i++) {
@@ -96,14 +96,14 @@ class Region extends React.Component {
         let value = parseFloat(colors.colorGradient[i*10].weight.toFixed(2))
         let printValue = this.humanizeValue(value)
         legend.push(
-          <text key={"label" + i} x={i*WIDTH} y={0} fontSize={FONT_SIZE} fill={TEXT_COLOR} textAnchor="middle">{printValue}</text>
+          <text key={"label" + i} x={i*WIDTH} y={0} fontSize={FONT_SIZE} fill={text_color} textAnchor="middle">{printValue}</text>
         )
       }
     }
     let value = parseFloat(colors.colorGradient[99].weight.toFixed(2))
     let printValue = this.humanizeValue(value)
     legend.push(
-      <text key={"endLabel"} x={10*WIDTH} y={0} fontSize={FONT_SIZE} fill={TEXT_COLOR} textAnchor="middle">{printValue}</text>
+      <text key={"endLabel"} x={10*WIDTH} y={0} fontSize={FONT_SIZE} fill={text_color} textAnchor="middle">{printValue}</text>
     )
 
     return legend
