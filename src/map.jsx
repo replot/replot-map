@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Tooltip} from "replot-core"
+import {Resize, Tooltip} from "replot-core"
 import Region from "./Region.jsx"
 
 class Map extends React.Component {
@@ -94,6 +94,22 @@ class Map extends React.Component {
   }
 }
 
+class MapResponsive extends React.Component {
+
+  render() {
+
+    return (
+      <Resize width={this.props.width}>
+        <Map {...this.props} />
+      </Resize>
+    )
+  }
+}
+
+MapResponsive.defaultProps = {
+  width: 800
+}
+
 Map.defaultProps = {
   IDKey: "ID",
   weightKey: "weight",
@@ -102,7 +118,7 @@ Map.defaultProps = {
   colorRangeLow: "#000000",
   colorRangeHigh: "#e8e8e8",
   scale: "lin",
-  width: 650,
+  width: 800,
   tooltip: true
   // initialAnimation: true,
 }
@@ -119,7 +135,10 @@ Map.propTypes = {
   colorRangeHigh: PropTypes.string,
   colorCatgories: PropTypes.string,
   scale: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]),
   zoomIDKey: PropTypes.string,
   zoomScale: PropTypes.number,
   tooltip: PropTypes.bool,
@@ -127,4 +146,4 @@ Map.propTypes = {
   tooltipContents: PropTypes.func
 }
 
-export default Map
+export default MapResponsive

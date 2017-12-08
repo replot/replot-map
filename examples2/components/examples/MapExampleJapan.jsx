@@ -64,7 +64,7 @@ class MapExampleJapan extends React.Component {
             {code: "JP-46", population: 1698695, prefecture: "Kagoshima"},
             {code: "JP-47", population: 1401066, prefecture: "Okinawa"}
           ]},
-          {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 700},
+          {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
           {optionName: "colorRangeLow", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
           {optionName: "colorRangeHigh", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
           {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},

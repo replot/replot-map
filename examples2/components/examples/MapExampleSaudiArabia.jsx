@@ -30,7 +30,7 @@ class MapExampleSaudiArabia extends React.Component {
             {code: "SA-12", population: 528400, area: "Al Jawf"},
             {code: "SA-14", population: 2288500, area: "'Asir"},
           ]},
-          {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 700},
+          {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
           {optionName: "colorRangeLow", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
           {optionName: "colorRangeHigh", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
           {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},

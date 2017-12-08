@@ -68,7 +68,7 @@ class MapExampleUSA extends React.Component {
             {state:"Wisconson", code:"US-WI", ug1314:28, g1314:45, total1314:73, ug1415:34, g1415:39, total1415:73, ug1516:33, g1516:40, total1516:73, population:5767891, pop1314:12.65627246, pop1415:12.65627246, pop1516:12.65627246},
             {state:"Wyoming", code:"US-WY", ug1314:4, g1314:1, total1314:5, ug1415:6, g1415:2, total1415:8, ug1516:7, g1516:1, total1516:8, population:586555, pop1314:8.524349805, pop1415:13.63895969, pop1516:13.63895969}
           ]},
-          {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 700},
+          {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
           {optionName: "colorRangeLow", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
           {optionName: "colorRangeHigh", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
           {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},

@@ -53,7 +53,7 @@ class MapExampleIndia extends React.Component {
             {code: "IN-UT", population: 10116752, area: "Uttarakhand"},
             {code: "IN-WB", population: 91347736, area: "West Bengal"},
           ]},
-          {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 700},
+          {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
           {optionName: "colorRangeLow", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
           {optionName: "colorRangeHigh", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
           {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
