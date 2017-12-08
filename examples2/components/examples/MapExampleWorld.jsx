@@ -131,8 +131,8 @@ class MapExampleWorld extends React.Component {
             {region:"World", country:"Zimbabwe", code:"ZW", ug1314:4, g1314:0, tot1314:4, ug1415:2, g1415:1, tot1415:3, ug1516:3, g1516:1, tot1516:4, population:16150360, gdp:16289, pop1516:2.476724977, gdp1516:24.55644914}
           ]},
           {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
-          {optionName: "colorRangeLow", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
-          {optionName: "colorRangeHigh", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
+          {optionName: "colorRangeHigh", name: "Color Range (High)", optionType: "field", input: "string", initialValue: "#225588"},
+          {optionName: "colorRangeLow", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
           {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
           {optionName: "zoomScale", name: "Zoom Scale", optionType: "field", input: "number", initialValue: 1},
           {optionName: "zoomIDKey", name: "Zoom Focus (Code)", optionType: "field", input: "string", initialValue: "N/A"},

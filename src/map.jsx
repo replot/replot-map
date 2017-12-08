@@ -72,7 +72,7 @@ class Map extends React.Component {
       pathIDKey={this.props.pathIDKey} pathTitleKey={this.props.pathTitleKey}
       data={data} IDKey={this.props.IDKey} weightKey={this.props.weightKey}
       scale={this.props.scale} colorKey={this.props.colorKey}
-      colorRange={[this.props.colorRangeLow, this.props.colorRangeHigh]}
+      colorRange={[this.props.colorRangeHigh, this.props.colorRangeLow]}
       colorCatgories={this.props.colorCatgories}
       activateTooltip={this.activateTooltip.bind(this)}
       deactivateTooltip={this.deactivateTooltip.bind(this)}
@@ -115,8 +115,8 @@ Map.defaultProps = {
   weightKey: "weight",
   pathIDKey: "id",
   pathTitleKey: "title",
-  colorRangeLow: "#000000",
-  colorRangeHigh: "#e8e8e8",
+  colorRangeLow: "#e8e8e8",
+  colorRangeHigh: "#000000",
   scale: "lin",
   width: 800,
   tooltip: true

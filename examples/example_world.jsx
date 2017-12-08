@@ -334,8 +334,8 @@ class ExampleApp extends React.Component {
           weightKey={this.state.weightKey}
           IDKey="code"
           scale={this.state.scale}
-          colorRangeLow="#f17e33"
-          colorRangeHigh="#fdf4ee"
+          colorRangeHigh="#f17e33"
+          colorRangeLow="#fdf4ee"
           width={900}
           />
         <Dropdown
