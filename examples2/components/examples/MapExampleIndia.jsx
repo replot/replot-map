@@ -58,7 +58,7 @@ class MapExampleIndia extends React.Component {
           {optionName: "colorRangeLow", name: "Color Range (Low)", optionType: "field", input: "string", initialValue: "#ffffff"},
           {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
           {optionName: "zoomScale", name: "Zoom Scale", optionType: "field", input: "number", initialValue: 1},
-          {optionName: "zoomIDKey", name: "Zoom Focus (Code)", optionType: "field", input: "string", initialValue: "N/A"},
+          {optionName: "zoomID", name: "Zoom Focus (Code)", optionType: "field", input: "string", initialValue: "N/A"},
           {optionName: "tooltip", name: "Tooltip", optionType: "bool", initialValue: true},
           {optionName: "tooltipColor", name: "Tooltip Color", optionType: "state", states:["dark","light"], initialValue: "dark"},
           {optionName: "IDKey", name: "ID", optionType: "hidden", initialValue: "code"},
