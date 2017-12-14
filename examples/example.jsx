@@ -1,7 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import {Map} from "../src/index.jsx"
-import CHILE from "./samples/Chile.js"
+import {Map, CHILE} from "../src/index.jsx"
 
 class KeyValueRow extends React.Component {
 
@@ -116,7 +115,7 @@ class ExampleApp extends React.Component {
         <div style={{width:"70%", display:"inline-block", float:"left", paddingLeft:"50px"}}>
           <Map
             data={this.state.data}
-            paths={CHILE.svg.g.path}
+            paths={CHILE}
           />
         </div>
       </div>

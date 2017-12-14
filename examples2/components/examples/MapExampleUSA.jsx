@@ -1,8 +1,7 @@
 import React from "react"
-import {Map} from "../../../src/index.jsx"
+import {Map, USA} from "../../../src/index.jsx"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 import colors from "../../colors"
-import USA from "../sampleMaps/USA.js"
 
 class MapExampleUSA extends React.Component {
 
@@ -100,7 +99,7 @@ class MapExampleUSA extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           palette={this.props.palette}>
           <Map data={this.state.optionList[0].initialValue}
-            paths={USA.svg.g.path}/>
+            paths={USA}/>
         </ComponentContainer>
       </div>
     )

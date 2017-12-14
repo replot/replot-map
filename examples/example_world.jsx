@@ -1,7 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import {Map} from "../src/index.jsx"
-import WORLD from "./samples/World.js"
+import {Map, WORLD} from "../src/index.jsx"
 
 class Dropdown extends React.Component {
 
@@ -330,7 +329,7 @@ class ExampleApp extends React.Component {
       <div>
         <Map
           data={data}
-          paths={WORLD.svg.g.path}
+          paths={WORLD}
           weightKey={this.state.weightKey}
           IDKey="code"
           scale={this.state.scale}

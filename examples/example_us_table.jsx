@@ -1,9 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import {Table} from "../src/index.jsx"
-import USA from "./samples/USA.js"
+import {Table, USA} from "../src/index.jsx"
 
 ReactDOM.render(
-  <Table paths={USA.svg.g.path} />,
+  <Table paths={USA} />,
   document.getElementById("react-app")
 )
