@@ -1,4 +1,4 @@
-const BOSNIA_HERZEGOVINA_CANTONS = [
+const BOSNIA_HERZEGOVINA = [
 				{
 					"id":"BA-01",
 					"title":"Unsko-sanski kanton",
@@ -91,4 +91,4 @@ const BOSNIA_HERZEGOVINA_CANTONS = [
 				}
 			]
 
-export default BOSNIA_HERZEGOVINA_CANTONS
+export default BOSNIA_HERZEGOVINA

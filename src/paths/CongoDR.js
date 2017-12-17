@@ -1,4 +1,4 @@
-const CONGO_D_R = [
+const CONGO_DR = [
 				{
 					"id":"CD-BC",
 					"title":"Kongo Central",
@@ -131,4 +131,4 @@ const CONGO_D_R = [
 				}
 			]
 
-export default CONGO_D_R
+export default CONGO_DR

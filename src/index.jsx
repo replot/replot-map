@@ -25,8 +25,7 @@ import BENIN from "./paths/Benin.js"
 import BERMUDA from "./paths/Bermuda.js"
 import BHUTAN from "./paths/Bhutan.js"
 import BOLIVIA from "./paths/Bolivia.js"
-import BOSNIA_HERZEGOVINA_CANTONS from "./paths/BosniaHerzegovinaCantons.js"
-import BOSNIA_HERZEGOVINA_REGIONS from "./paths/BosniaHerzegovinaRegions.js"
+import BOSNIA_HERZEGOVINA from "./paths/BosniaHerzegovina.js"
 import BOTSWANA from "./paths/Botswana.js"
 import BRAZIL from "./paths/Brazil.js"
 import BRITISH_VIRGIN_ISLANDS from "./paths/BritishVirginIslands.js"
@@ -49,17 +48,14 @@ import CHRISTMAS_ISLAND from "./paths/ChristmasIsland.js"
 import COCOS_ISLANDS from "./paths/CocosIslands.js"
 import COLOMBIA from "./paths/Colombia.js"
 import COMOROS from "./paths/Comoros.js"
-import CONGO_D_R from "./paths/CongoDR.js"
+import CONGO_DR from "./paths/CongoDR.js"
 import CONGO from "./paths/Congo.js"
-import CONTINENTS from "./paths/Continents.js"
-import CONTINENTS_WITH_ANTARCTICA from "./paths/ContinentsWithAntarctica.js"
 import COOK_ISLANDS from "./paths/CookIslands.js"
 import COSTA_RICA from "./paths/CostaRica.js"
 import CROATIA from "./paths/Croatia.js"
 import CUBA from "./paths/Cuba.js"
 import CURACAO from "./paths/Curacao.js"
 import CYPRUS from "./paths/Cyprus.js"
-import CYPRUS_NORTHERN_CYPRUS from "./paths/CyprusNorthernCyprus.js"
 import CZECH_REPUBLIC from "./paths/CzechRepublic.js"
 import DENMARK from "./paths/Denmark.js"
 import DJIBOUTI from "./paths/Djibouti.js"
@@ -78,15 +74,12 @@ import FAROE_ISLANDS from "./paths/FaroeIslands.js"
 import FIJI_EAST from "./paths/FijiEast.js"
 import FIJI_WEST from "./paths/FijiWest.js"
 import FINLAND from "./paths/Finland.js"
-import FRANCE2016 from "./paths/France2016.js"
-import FRANCE_DEPARTMENTS from "./paths/FranceDepartments.js"
 import FRANCE from "./paths/France.js"
 import FRENCH_GUIANA from "./paths/FrenchGuiana.js"
 import FRENCH_POLYNESIA from "./paths/FrenchPolynesia.js"
 import GABON from "./paths/Gabon.js"
 import GAMBIA from "./paths/Gambia.js"
 import GEORGIA from "./paths/Georgia.js"
-import GEORGIA_SOUTH_OSSETIA from "./paths/GeorgiaSouthOssetia.js"
 import GERMANY from "./paths/Germany.js"
 import GHANA from "./paths/Ghana.js"
 import GIBRALTAR from "./paths/Gibraltar.js"
@@ -111,7 +104,6 @@ import IRAQ from "./paths/Iraq.js"
 import IRELAND from "./paths/Ireland.js"
 import ISLE_OF_MAN from "./paths/IsleOfMan.js"
 import ISRAEL from "./paths/Israel.js"
-import ISRAEL_PALESTINE from "./paths/IsraelPalestine.js"
 import ITALY from "./paths/Italy.js"
 import IVORY_COAST from "./paths/IvoryCoast.js"
 import JAMAICA from "./paths/Jamaica.js"
@@ -154,7 +146,6 @@ import MONGOLIA from "./paths/Mongolia.js"
 import MONTENEGRO from "./paths/Montenegro.js"
 import MONTSERRAT from "./paths/Montserrat.js"
 import MOROCCO from "./paths/Morocco.js"
-import MOROCCO_WESTERN_SAHARA from "./paths/MoroccoWesternSahara.js"
 import MOZAMBIQUE from "./paths/Mozambique.js"
 import MYANMAR from "./paths/Myanmar.js"
 import NAMIBIA from "./paths/Namibia.js"
@@ -182,7 +173,6 @@ import PHILIPPINES from "./paths/Philippines.js"
 import PITCAIRN_ISLANDS from "./paths/PitcairnIslands.js"
 import POLAND from "./paths/Poland.js"
 import PORTUGAL from "./paths/Portugal.js"
-import PORTUGAL_REGIONS from "./paths/PortugalRegions.js"
 import PUERTO_RICO from "./paths/PuertoRico.js"
 import QATAR from "./paths/Qatar.js"
 import REUNION from "./paths/Reunion.js"
@@ -197,7 +187,6 @@ import SAO_TOME_PRINCIPE from "./paths/SaoTomePrincipe.js"
 import SAUDI_ARABIA from "./paths/SaudiArabia.js"
 import SENEGAL from "./paths/Senegal.js"
 import SERBIA from "./paths/Serbia.js"
-import SERBIA_NO_KOSOVO from "./paths/SerbiaNoKosovo.js"
 import SEYCHELLES from "./paths/Seychelles.js"
 import SIERRA_LEONE from "./paths/SierraLeone.js"
 import SINGAPORE from "./paths/Singapore.js"
@@ -209,9 +198,7 @@ import SOMALIA from "./paths/Somalia.js"
 import SOUTH_AFRICA from "./paths/SouthAfrica.js"
 import SOUTH_KOREA from "./paths/SouthKorea.js"
 import SOUTH_SUDAN from "./paths/SouthSudan.js"
-import SPAIN2 from "./paths/Spain2.js"
 import SPAIN from "./paths/Spain.js"
-import SPAIN_PROVINCES from "./paths/SpainProvinces.js"
 import SRI_LANKA from "./paths/SriLanka.js"
 import ST_HELENA from "./paths/StHelena.js"
 import ST_KITTS_NEVIS from "./paths/StKittsNevis.js"
@@ -243,11 +230,7 @@ import UKRAINE from "./paths/Ukraine.js"
 import UNITED_ARAB_EMIRATES from "./paths/UnitedArabEmirates.js"
 import UNITED_KINGDOM from "./paths/UnitedKingdom.js"
 import URUGUAY from "./paths/Uruguay.js"
-import USA2 from "./paths/Usa2.js"
-import USA from "./paths/Usa.js"
-import USA_MERCATOR from "./paths/UsaMercator.js"
-import USA_TERRITORIES2 from "./paths/UsaTerritories2.js"
-import USA_TERRITORIES from "./paths/UsaTerritories.js"
+import USA from "./paths/UnitedStates.js"
 import US_VIRGIN_ISLANDS from "./paths/UsVirginIslands.js"
 import UZBEKISTAN from "./paths/Uzbekistan.js"
 import VANUATU from "./paths/Vanuatu.js"
@@ -256,11 +239,6 @@ import VENEZUELA from "./paths/Venezuela.js"
 import VIETNAM from "./paths/Vietnam.js"
 import WALLIS_FUTUNA from "./paths/WallisFutuna.js"
 import WORLD from "./paths/World.js"
-import WORLD_INDIA from "./paths/WorldIndia.js"
-import WORLD_KASHMIR from "./paths/WorldKashmir.js"
-import WORLD_RUSSIA_SPLIT from "./paths/WorldRussiaSplit.js"
-import WORLD_RUSSIA_SPLIT_WITH_ANTARCTICA from "./paths/WorldRussiaSplitWithAntarctica.js"
-import WORLD_WITH_ANTARCTICA from "./paths/WorldWithAntarctica.js"
 import YEMEN from "./paths/Yemen.js"
 import ZAMBIA from "./paths/Zambia.js"
 import ZIMBABWE from "./paths/Zimbabwe.js"
@@ -293,8 +271,7 @@ export {
   BERMUDA,
   BHUTAN,
   BOLIVIA,
-  BOSNIA_HERZEGOVINA_CANTONS,
-  BOSNIA_HERZEGOVINA_REGIONS,
+  BOSNIA_HERZEGOVINA,
   BOTSWANA,
   BRAZIL,
   BRITISH_VIRGIN_ISLANDS,
@@ -317,17 +294,14 @@ export {
   COCOS_ISLANDS,
   COLOMBIA,
   COMOROS,
-  CONGO_D_R,
+  CONGO_DR,
   CONGO,
-  CONTINENTS,
-  CONTINENTS_WITH_ANTARCTICA,
   COOK_ISLANDS,
   COSTA_RICA,
   CROATIA,
   CUBA,
   CURACAO,
   CYPRUS,
-  CYPRUS_NORTHERN_CYPRUS,
   CZECH_REPUBLIC,
   DENMARK,
   DJIBOUTI,
@@ -346,15 +320,12 @@ export {
   FIJI_EAST,
   FIJI_WEST,
   FINLAND,
-  FRANCE2016,
-  FRANCE_DEPARTMENTS,
   FRANCE,
   FRENCH_GUIANA,
   FRENCH_POLYNESIA,
   GABON,
   GAMBIA,
   GEORGIA,
-  GEORGIA_SOUTH_OSSETIA,
   GERMANY,
   GHANA,
   GIBRALTAR,
@@ -379,7 +350,6 @@ export {
   IRELAND,
   ISLE_OF_MAN,
   ISRAEL,
-  ISRAEL_PALESTINE,
   ITALY,
   IVORY_COAST,
   JAMAICA,
@@ -422,7 +392,6 @@ export {
   MONTENEGRO,
   MONTSERRAT,
   MOROCCO,
-  MOROCCO_WESTERN_SAHARA,
   MOZAMBIQUE,
   MYANMAR,
   NAMIBIA,
@@ -450,7 +419,6 @@ export {
   PITCAIRN_ISLANDS,
   POLAND,
   PORTUGAL,
-  PORTUGAL_REGIONS,
   PUERTO_RICO,
   QATAR,
   REUNION,
@@ -465,7 +433,6 @@ export {
   SAUDI_ARABIA,
   SENEGAL,
   SERBIA,
-  SERBIA_NO_KOSOVO,
   SEYCHELLES,
   SIERRA_LEONE,
   SINGAPORE,
@@ -477,9 +444,7 @@ export {
   SOUTH_AFRICA,
   SOUTH_KOREA,
   SOUTH_SUDAN,
-  SPAIN2,
   SPAIN,
-  SPAIN_PROVINCES,
   SRI_LANKA,
   ST_HELENA,
   ST_KITTS_NEVIS,
@@ -511,11 +476,7 @@ export {
   UNITED_ARAB_EMIRATES,
   UNITED_KINGDOM,
   URUGUAY,
-  USA2,
   USA,
-  USA_MERCATOR,
-  USA_TERRITORIES2,
-  USA_TERRITORIES,
   US_VIRGIN_ISLANDS,
   UZBEKISTAN,
   VANUATU,
@@ -523,11 +484,6 @@ export {
   VIETNAM,
   WALLIS_FUTUNA,
   WORLD,
-  WORLD_INDIA,
-  WORLD_KASHMIR,
-  WORLD_RUSSIA_SPLIT,
-  WORLD_RUSSIA_SPLIT_WITH_ANTARCTICA,
-  WORLD_WITH_ANTARCTICA,
   YEMEN,
   ZAMBIA,
   ZIMBABWE,
