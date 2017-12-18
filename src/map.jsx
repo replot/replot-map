@@ -115,8 +115,8 @@ Map.defaultProps = {
   weightKey: "weight",
   pathIDKey: "id",
   pathTitleKey: "title",
-  colorRangeLow: "#e8e8e8",
-  colorRangeHigh: "#000000",
+  colorRangeLow: "#ffffff",
+  colorRangeHigh: "#225588",
   scale: "lin",
   width: 800,
   tooltip: true
