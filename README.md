@@ -196,9 +196,9 @@ Users can customize what is displayed inside the tooltip with a function. Expect
 ```javascript
 fillTooltip(title, data){
   return(
-    <div>      
-      <span>The name of this location is {title}</span>
-      <span>The data for this location looks like {data.toString()}</span>
+    <div>
+      <span>The name of this location is {title}.</span><br/>
+      <span>The data for this location looks like: {JSON.stringify(data)}</span>
     </div>
   )
 }
@@ -210,7 +210,7 @@ render() {
 }
 ```
 
-TODO: INSERT AN IMAGE HERE (default, new tooltip)
+![ScreenshotTooltipCustom](img/tooltip_custom.png)
 
 ## Supported Countries and Regions
 
