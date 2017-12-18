@@ -56,7 +56,7 @@ render() {
 - `pathIDKey` defaults to `"id"`
 - `pathTitleKey` defaults to `"title"`
 
-TODO: INSERT AN IMAGE HERE (default)
+![ScreenshotDefaultUSA](img/default.png)
 
 You can also import our complimentary svg map paths:
 
@@ -92,7 +92,7 @@ Dimensions may be specified by passing in `width` prop with a number, in the uni
 ```javascript
 render() {
   return(
-    <Map data={populations} paths={USA} width={650} />
+    <Map data={populations} paths={USA} width={600} />
   )
 }
 ```
@@ -105,12 +105,14 @@ will then be calculated as a proportion of the parent container.
 ```javascript
 render() {
   return(
-    <Map data={populations} paths={USA} width="50%" />
+    <Map data={populations} paths={USA} width="60%" />
   )
 }
 ```
 
-TODO: INSERT AN IMAGE HERE (default, width 600, width 50%)
+ Default (800px)            | width={600}               | width="60%"              
+:-------------------------:|:-------------------------:|:-------------------------:
+![ScreenshotDefaultWidth](img/width_default.png) | ![ScreenshotWidth600px](img/width_600px.png) | ![ScreenshotWidth60%](img/width_60percent.png)
 
 Height dimension will be adjusted automatically to best match the width, fitting the entirity of map without skewing the original aspect ratio.
 
@@ -120,7 +122,7 @@ You may zoom into a specific area of map by passing in `zoomID` and `zoomScale` 
 ```javascript
 render() {
   return(
-    <Map data={populations} paths={USA} zoomID="US-AL" zoomScale={3} />
+    <Map data={populations} paths={USA} zoomID="US-TX" zoomScale={2} />
   )
 }
 ```
@@ -130,7 +132,9 @@ render() {
 
 If `zoomScale` is passed in, but `zoomID` is not, the Map will be scaled up from its top left corner by `zoomScale`.
 
-TODO: INSERT AN IMAGE HERE (default,  zoomID="US-AL" and zoomScale="3", zoomID=null and zoomScale="3")
+ Default                   |zoomID={null} zoomScale={2}|zoomID="US-TX" zoomScale={2}         
+:-------------------------:|:-------------------------:|:-------------------------:
+![ScreenshotDefault](img/default.png) | ![ScreenshotZoomIDNullScale2](img/zoom_scale_2_ID_null.png) | ![ScreenshotZoomIDTexasScale2](img/zoom_scale_2_ID_US-TX.png)
 
 ### Color
 Colors may be specified by passing in `colorRangeLow` and `colorRangeHigh` props. The Map is colored with the gradient in the range of `colorRangeLow` to `colorRangeHigh`, from the smallest to the largest weight. 
@@ -138,15 +142,17 @@ Colors may be specified by passing in `colorRangeLow` and `colorRangeHigh` props
 ```javascript
 render() {
   return(
-    <Map data={populations} paths={USA} colorRangeLow="#ffffff" colorRangeHigh="#225588" />
+    <Map data={populations} paths={USA} colorRangeLow="#ffffff" colorRangeHigh="#ff4c4c" />
   )
 }
 ```
 
-- `colorRangeLow` defaults to `"#e8e8e8"`
-- `colorRangeHigh` defaults to `"#000000"`
+- `colorRangeLow` defaults to `"#ffffff"`
+- `colorRangeHigh` defaults to `"#225588"`
 
-TODO: INSERT AN IMAGE HERE (default, colorRangeLow="#ffffff" and colorRangeHigh="#225588")
+ Default                   |colorRangeLow="#ffffff" colorRangeHigh="#ff4c4c"         
+:-------------------------:|:-------------------------:
+![ScreenshotDefault](img/default.png) | ![ScreenshotColorHighFF4C4CLowFFFFFF](img/color_high_FF4C4C_low_ffffff.png)
 
 #### Scale
 Users can control the scale of the Map coloring, linear or logarithmic.
@@ -161,7 +167,9 @@ render() {
 }
 ```
 
-TODO: INSERT AN IMAGE HERE (default, log)
+ Default (scale="lin")     | scale="log"     
+:-------------------------:|:-------------------------:
+![ScreenshotDefault](img/default.png) | ![ScreenshotScaleLog](img/scale_log.png)
 
 ### Tooltip
 Tooltips can display more specific information about a data series.
@@ -178,7 +186,9 @@ render() {
 - `tooltipColor` defaults to `light`, it can be set to `light` or `dark`
 - `tooltipContents` defaults to data associated with the location (title, weight)
 
-TODO: INSERT AN IMAGE HERE (tooltip off, on & dark, default: on & light)
+Default (tooltipColor="light")|tooltipColor="dark"|tooltip={false}   
+:-------------------------:|:-------------------------:|:-------------------------:
+![ScreenshotDefaultTooltip](img/tooltip_light.png) | ![ScreenshotTooltipDark](img/tooltip_dark.png) | ![ScreenshotTooltipOff](img/tooltip_off.png)
 
 #### User-provided Tooltip Function
 Users can customize what is displayed inside the tooltip with a function. Expected arguments to the function are the title of the location and the data for the specific location hovered over. The function should return JSX.
