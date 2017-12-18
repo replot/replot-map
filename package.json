@@ -3,7 +3,11 @@
   "version": "0.2.0",
   "description": "Map chart components for Replot",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "watch": "cd examples && webpack --watch",
+    "build-umd": "webpack src/index.js umd/replot-map.js",
+    "compile": "webpack --output-filename index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MacroConnections/replot-map.git"

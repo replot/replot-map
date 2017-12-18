@@ -1,9 +1,15 @@
 module.exports = function() {
   return {
-    entry: "./index.jsx",
+    entry: {
+      example: "./example.jsx",
+      world: "./example_world.jsx",
+      us_students: "./example_us_students.jsx",
+      us_table: "./example_us_table.jsx",
+      japan: "./example_jp.jsx"
+    },
     output: {
       path: __dirname + "/static",
-      filename: "bundle.js"
+      filename: "[name].bundle.js"
     },
     module: {
       loaders: [
