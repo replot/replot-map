@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import {Map, WORLD} from "../src/index.jsx"
+import {Map, WORLD} from "../index.js"
 
 class Dropdown extends React.Component {
 

@@ -1,5 +1,5 @@
 import React from "react"
-import {Map, SAUDI_ARABIA} from "../../../src/index.jsx"
+import {Map, SAUDI_ARABIA} from "../../../index.js"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 import colors from "../../colors"
 

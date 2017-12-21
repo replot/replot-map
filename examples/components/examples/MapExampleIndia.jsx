@@ -1,5 +1,5 @@
 import React from "react"
-import {Map, INDIA} from "../../../src/index.jsx"
+import {Map, INDIA} from "../../../index.js"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 import colors from "../../colors"
 

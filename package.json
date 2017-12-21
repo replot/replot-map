@@ -40,5 +40,8 @@
     "replot-core": "git+ssh://git@github.com/MacroConnections/replot-core.git",
     "request": "^2.81.0",
     "webpack": "^2.2.1"
+  },
+  "devDependencies": {
+    "radium": "^0.19.6"
   }
 }
