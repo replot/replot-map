@@ -1,9 +1,11 @@
 import React from "react"
+import PropTypes from "prop-types"
+import extractValues from "./extractValues.js"
 import getTranslations from "./getTranslations.js"
 import getLegend from "./getLegend.jsx"
 import {generateGradient, matchColorsToValues, isBackgroundDark} from "./getMapColoring.js"
 
-class Region extends React.Component {
+class Region extends React.PureComponent {
 
   constructor(props) {
     super(props)
@@ -27,7 +29,7 @@ class Region extends React.Component {
       scale *= this.props.zoomScale
     }
 
-    let translations = getTranslations(this.props.width, currentHeight, scale, this.props.zoomIDKey, this.zoomPath)
+    let translations = getTranslations(this.props.width, currentHeight, scale, this.props.zoomID, this.zoomPath)
     let translateX = translations[0]
     let translateY = translations[1]
 
@@ -36,11 +38,11 @@ class Region extends React.Component {
       translateX: translateX, translateY: translateY })
   }
 
-  // Prop change - Respond if width, zoomIDKey, or zoomScale changes.
+  // Prop change - Respond if width, zoomID, or zoomScale changes.
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.width !== this.props.width ||
       prevProps.zoomScale !== this.props.zoomScale ||
-      prevProps.zoomIDKey !== this.props.zoomIDKey) {
+      prevProps.zoomID !== this.props.zoomID) {
 
       let scale = this.props.width/this.state.initialWidth
       let currentHeight = this.state.initialHeight * scale
@@ -49,7 +51,7 @@ class Region extends React.Component {
         scale *= this.props.zoomScale
       }
 
-      let translations = getTranslations(this.props.width, currentHeight, scale, this.props.zoomIDKey, this.zoomPath)
+      let translations = getTranslations(this.props.width, currentHeight, scale, this.props.zoomID, this.zoomPath)
       let translateX = translations[0]
       let translateY = translations[1]
 
@@ -64,9 +66,11 @@ class Region extends React.Component {
       IDList.push(area[this.props.pathIDKey])
     }
 
-    let mapGradient = generateGradient(this.props.scale, this.props.data, this.props.colorKey, this.props.colorRange, this.props.colorCatgories)
-    let mapColors = matchColorsToValues(mapGradient, IDList, this.props.data)
-    let legend = getLegend(mapGradient, this.props.scale, isBackgroundDark(this.props.colorRange))
+    let extractedData = extractValues(this.props.data, this.props.IDKey, this.props.weightKey)
+    let colorRange = [this.props.colorRangeHigh, this.props.colorRangeLow]
+    let mapGradient = generateGradient(this.props.scale, extractedData, this.props.colorKey, colorRange, this.props.colorCatgories)
+    let mapColors = matchColorsToValues(mapGradient, IDList, extractedData)
+    let legend = getLegend(mapGradient, this.props.scale, isBackgroundDark(colorRange))
 
     let correctionX = 0
     let correctionY = 0
@@ -82,7 +86,7 @@ class Region extends React.Component {
       let area = this.props.paths[i]
       let id = area[this.props.pathIDKey]
       let title = area[this.props.pathTitleKey]
-      let ref = this.props.zoomIDKey && id === this.props.zoomIDKey ?
+      let ref = this.props.zoomID && id === this.props.zoomID ?
         (node) => this.zoomPath = node : null
       paths.push(
         <path key={id} id={id} title={title} ref={ref} fill={mapColors[id].color}
@@ -110,6 +114,37 @@ class Region extends React.Component {
       </div>
     )
   }
+}
+
+Region.defaultProps = {
+  IDKey: "ID",
+  weightKey: "weight",
+  pathIDKey: "id",
+  pathTitleKey: "title",
+  colorRangeLow: "#ffffff",
+  colorRangeHigh: "#225588",
+  scale: "lin",
+  width: 800,
+}
+
+Region.propTypes = {
+  data: PropTypes.array.isRequired,
+  paths: PropTypes.arrayOf(PropTypes.object).isRequired,
+  IDKey: PropTypes.string,
+  weightKey: PropTypes.string,
+  pathIDKey: PropTypes.string,
+  pathTitleKey: PropTypes.string,
+  colorKey: PropTypes.string,
+  colorRangeLow: PropTypes.string,
+  colorRangeHigh: PropTypes.string,
+  colorCatgories: PropTypes.string,
+  scale: PropTypes.string,
+  width: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]),
+  zoomID: PropTypes.string,
+  zoomScale: PropTypes.number,
 }
 
 export default Region

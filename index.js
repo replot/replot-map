@@ -1,4 +1,4 @@
-import Map from "./src/map.jsx"
+import Map from "./src/MapChartTooltip.jsx"
 import Table from "./src/Table.jsx"
 import AFGHANISTAN from "./src/paths/Afghanistan.js"
 import ALBANIA from "./src/paths/Albania.js"
