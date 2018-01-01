@@ -5,7 +5,7 @@ import getTranslations from "./getTranslations.js"
 import getLegend from "./getLegend.jsx"
 import {generateGradient, matchColorsToValues, isBackgroundDark} from "./getMapColoring.js"
 
-class Region extends React.PureComponent {
+class MapChart extends React.PureComponent {
 
   constructor(props) {
     super(props)
@@ -116,7 +116,7 @@ class Region extends React.PureComponent {
   }
 }
 
-Region.defaultProps = {
+MapChart.defaultProps = {
   IDKey: "ID",
   weightKey: "weight",
   pathIDKey: "id",
@@ -127,7 +127,7 @@ Region.defaultProps = {
   width: 800,
 }
 
-Region.propTypes = {
+MapChart.propTypes = {
   data: PropTypes.array.isRequired,
   paths: PropTypes.arrayOf(PropTypes.object).isRequired,
   IDKey: PropTypes.string,
@@ -147,4 +147,4 @@ Region.propTypes = {
   zoomScale: PropTypes.number,
 }
 
-export default Region
+export default MapChart

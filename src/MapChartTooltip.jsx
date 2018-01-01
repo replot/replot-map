@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import {Resize, Tooltip} from "replot-core"
-import Region from "./Region.jsx"
+import MapChart from "./MapChart.jsx"
 
 class MapChartTooltip extends React.PureComponent {
 
@@ -55,7 +55,7 @@ class MapChartTooltip extends React.PureComponent {
   render() {
     return(
       <div onMouseMove={this.props.tooltip ? this.updateMousePos : null}>
-        <Region
+        <MapChart
           {...this.props}
           activateTooltip={this.activateTooltip}
           deactivateTooltip={this.deactivateTooltip}
