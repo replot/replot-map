@@ -1,15 +1,12 @@
 import React from "react"
-import Coloring from "./coloring.jsx"
-import Humanize from "humanize-plus"
+import getTranslations from "./getTranslations.js"
+import getLegend from "./getLegend.jsx"
+import {generateGradient, matchColorsToValues, isBackgroundDark} from "./getMapColoring.js"
 
 class Region extends React.Component {
 
   constructor(props) {
     super(props)
-    this.IDList = []
-    for (let area of this.props.paths) {
-      this.IDList.push(area[this.props.pathIDKey])
-    }
     this.zoomPath = null
     this.state = {
       initialHeight: 0,
@@ -30,7 +27,7 @@ class Region extends React.Component {
       scale *= this.props.zoomScale
     }
 
-    let translations = this.getTranslations(this.props.width, currentHeight, scale)
+    let translations = getTranslations(this.props.width, currentHeight, scale, this.props.zoomIDKey, this.zoomPath)
     let translateX = translations[0]
     let translateY = translations[1]
 
@@ -52,7 +49,7 @@ class Region extends React.Component {
         scale *= this.props.zoomScale
       }
 
-      let translations = this.getTranslations(this.props.width, currentHeight, scale)
+      let translations = getTranslations(this.props.width, currentHeight, scale, this.props.zoomIDKey, this.zoomPath)
       let translateX = translations[0]
       let translateY = translations[1]
 
@@ -61,72 +58,15 @@ class Region extends React.Component {
     }
   }
 
-  getTranslations(width, height, scale) {
-    if (this.props.zoomIDKey && this.zoomPath) {
-      // If zoomID is specified, translate the map to center on zoomID.
-      let pathBBox = this.zoomPath.getBBox()
-      let pathMidX = (pathBBox.x + pathBBox.width / 2) * scale
-      let pathMidY = (pathBBox.y + pathBBox.height / 2) * scale
-      return [(width / 2) - pathMidX, (height / 2) - pathMidY] //[x, y]
-    }
-    return [0, 0] //No translations needed.
-  }
-
-  getLegend(colors){
-    const HEIGHT = 15
-    const WIDTH = 30
-    const FONT_SIZE = 14
-    const FONT_HEIGHT = 6
-    const PADDING = 20
-    let background = colors.isBackgroundDark() ? "#000000" : "#ffffff"
-    let text_color = colors.isBackgroundDark() ? "#ffffff" : "#000000"
-
-    let legend = []
-    legend.push(
-      <rect key="background" x={-PADDING} y={-PADDING}
-        height={FONT_HEIGHT+HEIGHT+PADDING*1.5} width={WIDTH*10+PADDING*2}
-        fill={background} fillOpacity="0.5"/>
-    )
-
-    for (let i = 0; i < 10; i++) {
-      legend.push(
-        <rect key={"rect" + i} x={i*WIDTH} y={FONT_HEIGHT} height={HEIGHT} width={WIDTH} fill={colors.colorGradient[i*10].color}/>
-      )
-      if (i%2 === 0) {
-        let value = parseFloat(colors.colorGradient[i*10].weight.toFixed(2))
-        let printValue = this.humanizeValue(value)
-        legend.push(
-          <text key={"label" + i} x={i*WIDTH} y={0} fontSize={FONT_SIZE} fill={text_color} textAnchor="middle">{printValue}</text>
-        )
-      }
-    }
-    let value = parseFloat(colors.colorGradient[99].weight.toFixed(2))
-    let printValue = this.humanizeValue(value)
-    legend.push(
-      <text key={"endLabel"} x={10*WIDTH} y={0} fontSize={FONT_SIZE} fill={text_color} textAnchor="middle">{printValue}</text>
-    )
-
-    return legend
-  }
-
-  humanizeValue(value) {
-    if (value < 1 && value > -1){
-      if (this.props.scale == "lin") {
-        return +value.toFixed(3)
-      } else if (this.props.scale == "log") {
-        return +value.toFixed(5)
-      }
-    } else if (value < 1000 && value > -1000){
-      return +value.toFixed(1)
-    } else {
-      return Humanize.compactInteger(value, 1)
-    }
-  }
-
   render () {
-    let colors = new Coloring(this.IDList, this.props.IDKey, this.props.weightKey, this.props.scale, this.props.data, this.props.colorKey, this.props.colorRange, this.props.colorCatgories)
-    let mapColors = colors.generate()
-    let legend = this.getLegend(colors)
+    let IDList = []
+    for (let area of this.props.paths) {
+      IDList.push(area[this.props.pathIDKey])
+    }
+
+    let mapGradient = generateGradient(this.props.scale, this.props.data, this.props.colorKey, this.props.colorRange, this.props.colorCatgories)
+    let mapColors = matchColorsToValues(mapGradient, IDList, this.props.data)
+    let legend = getLegend(mapGradient, this.props.scale, isBackgroundDark(this.props.colorRange))
 
     let correctionX = 0
     let correctionY = 0
