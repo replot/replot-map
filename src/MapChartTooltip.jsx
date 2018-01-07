@@ -74,6 +74,7 @@ class MapChartTooltip extends React.PureComponent {
 }
 
 MapChartTooltip.defaultProps = {
+  weightKey: "weight",
   tooltip: true
 }
 
