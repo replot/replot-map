@@ -38,6 +38,7 @@
     "react-dom": "^15.4.2",
     "react-motion": "^0.4.7",
     "replot-core": "git+ssh://git@github.com/MacroConnections/replot-core.git",
+    "replot-helpers": "git+ssh://git@github.com/MacroConnections/replot-helpers.git",
     "request": "^2.81.0",
     "webpack": "^2.2.1"
   },

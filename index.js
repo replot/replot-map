@@ -1,5 +1,4 @@
 import Map from "./src/MapChartTooltip.jsx"
-import Table from "./src/Table.jsx"
 import AFGHANISTAN from "./src/paths/Afghanistan.js"
 import ALBANIA from "./src/paths/Albania.js"
 import ALGERIA from "./src/paths/Algeria.js"
@@ -245,7 +244,6 @@ import ZIMBABWE from "./src/paths/Zimbabwe.js"
 
 export {
   Map,
-  Table,
   AFGHANISTAN,
   ALBANIA,
   ALGERIA,

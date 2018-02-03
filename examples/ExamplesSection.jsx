@@ -1,10 +1,10 @@
 import React from "react"
-import SectionContainer from "./SectionContainer.jsx"
-import MapExampleWorld from "./examples/MapExampleWorld.jsx"
-import MapExampleUSA from "./examples/MapExampleUSA.jsx"
-import MapExampleIndia from "./examples/MapExampleIndia.jsx"
-import MapExampleJapan from "./examples/MapExampleJapan.jsx"
-import MapExampleSaudiArabia from "./examples/MapExampleSaudiArabia.jsx"
+import {SectionContainer} from "replot-helpers"
+import MapExampleWorld from "./MapExampleWorld.jsx"
+import MapExampleUSA from "./MapExampleUSA.jsx"
+import MapExampleIndia from "./MapExampleIndia.jsx"
+import MapExampleJapan from "./MapExampleJapan.jsx"
+import MapExampleSaudiArabia from "./MapExampleSaudiArabia.jsx"
 
 class ExamplesSection extends React.Component {
 

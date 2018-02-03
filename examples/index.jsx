@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import Radium from "radium"
-import colors from "./colors.js"
-import ExamplesSection from "./components/ExamplesSection.jsx"
+import {ColorTheme} from "replot-helpers"
+import ExamplesSection from "./ExamplesSection.jsx"
 
 class ExampleApp extends React.Component {
 
@@ -23,22 +23,22 @@ class ExampleApp extends React.Component {
     this.setState({
       theme: "dark"
     })
-    document.getElementById("body").style.backgroundColor = colors["dark"].body.bg
-    document.getElementById("body").style.backgroundImage = colors["dark"].body.gradient
+    document.getElementById("body").style.backgroundColor = ColorTheme["dark"].body.bg
+    document.getElementById("body").style.backgroundImage = ColorTheme["dark"].body.gradient
   }
 
   setLightTheme() {
     this.setState({
       theme: "light"
     })
-    document.getElementById("body").style.backgroundColor = colors["light"].bodyBg
+    document.getElementById("body").style.backgroundColor = ColorTheme["light"].bodyBg
   }
 
   render() {
     const style = {
       body: {
-        backgroundColor: colors[this.state.theme].bodyBg,
-        color: colors[this.state.theme].body.text,
+        backgroundColor: ColorTheme[this.state.theme].bodyBg,
+        color: ColorTheme[this.state.theme].body.text,
         maxWidth: "100%"
       },
     }

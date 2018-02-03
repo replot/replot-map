@@ -1,7 +1,6 @@
 import React from "react"
-import {Map, WORLD} from "../../../index.js"
-import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
-import colors from "../../colors"
+import {Map, WORLD} from "../index.js"
+import {ComponentContainer, ColorTheme} from "replot-helpers"
 
 class MapExampleWorld extends React.Component {
 
@@ -147,7 +146,7 @@ class MapExampleWorld extends React.Component {
     let style = {
       title: {
         fontSize: "45px",
-        color: colors[this.props.palette].body.text,
+        color: ColorTheme[this.props.palette].body.text,
         padding: 15,
       },
       container: {

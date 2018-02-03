@@ -1,7 +1,6 @@
 import React from "react"
-import {Map, INDIA} from "../../../index.js"
-import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
-import colors from "../../colors"
+import {Map, INDIA} from "../index.js"
+import {ComponentContainer, ColorTheme} from "replot-helpers"
 
 class MapExampleIndia extends React.Component {
 
@@ -70,7 +69,7 @@ class MapExampleIndia extends React.Component {
     let style = {
       title: {
         fontSize: "45px",
-        color: colors[this.props.palette].body.text,
+        color: ColorTheme[this.props.palette].body.text,
         padding: 15,
       },
       container: {
