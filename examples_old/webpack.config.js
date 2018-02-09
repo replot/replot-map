@@ -4,7 +4,6 @@ module.exports = function() {
       example: "./example.jsx",
       world: "./example_world.jsx",
       us_students: "./example_us_students.jsx",
-      us_table: "./example_us_table.jsx",
       japan: "./example_jp.jsx"
     },
     output: {
