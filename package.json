@@ -24,6 +24,9 @@
     "url": "https://github.com/MacroConnections/replot-map/issues"
   },
   "homepage": "https://github.com/MacroConnections/replot-map#readme",
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
@@ -31,9 +34,9 @@
     "babel-preset-react": "^6.23.0",
     "eslint": "^3.16.1",
     "eslint-plugin-react": "^6.10.0",
-    "radium": "^0.19.6",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "radium": "^0.21.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "replot-core": "git+ssh://git@github.com/MacroConnections/replot-core.git",
     "replot-helpers": "git+ssh://git@github.com/MacroConnections/replot-helpers.git",
     "webpack": "^2.2.1"
