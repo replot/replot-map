@@ -69,7 +69,7 @@ class MapChart extends React.PureComponent {
     let extractedData = extractValues(this.props.data, this.props.geoCode, this.props.weightKey)
     let colorRange = [this.props.colorRangeHigh, this.props.colorRangeLow]
     let mapGradient = generateGradient(this.props.scale, extractedData, this.props.colorKey, colorRange, this.props.colorCatgories)
-    let mapColors = matchColorsToValues(mapGradient, IDList, extractedData)
+    let mapColors = matchColorsToValues(mapGradient, this.props.noDataColor, this.props.noDataOpacity, IDList, extractedData)
     let legend = getLegend(mapGradient, this.props.scale, isBackgroundDark(colorRange))
 
     let correctionX = 0
@@ -89,7 +89,8 @@ class MapChart extends React.PureComponent {
       let ref = this.props.zoomID && id === this.props.zoomID ?
         (node) => this.zoomPath = node : null
       paths.push(
-        <path key={id} id={id} title={title} ref={ref} fill={mapColors[id].color}
+        <path key={id} id={id} title={title} ref={ref}
+          fill={mapColors[id].color} opacity={mapColors[id].opacity}
           onMouseOver={this.props.activateTooltip.bind(this, mapColors[id].raw, title)}
           onMouseOut={this.props.deactivateTooltip.bind(this)}
           d={area.d} />
@@ -123,6 +124,7 @@ MapChart.defaultProps = {
   pathTitleKey: "title",
   colorRangeLow: "#ffffff",
   colorRangeHigh: "#225588",
+  noDataOpacity: 0.5,
   scale: "lin",
   width: 800,
 }
@@ -138,6 +140,8 @@ MapChart.propTypes = {
   colorRangeLow: PropTypes.string,
   colorRangeHigh: PropTypes.string,
   colorCatgories: PropTypes.string,
+  noDataOpacity: PropTypes.number,
+  noDataColor: PropTypes.string,
   scale: PropTypes.string,
   width: PropTypes.oneOfType([
     PropTypes.number,

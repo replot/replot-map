@@ -154,6 +154,35 @@ render() {
 :-------------------------:|:-------------------------:
 ![ScreenshotDefault](img/default.png) | ![ScreenshotColorHighFF4C4CLowFFFFFF](img/color_high_FF4C4C_low_ffffff.png)
 
+#### Coloring Regions with No Data
+Color of the regions with no data may be specified by passing in `noDataColor` prop.
+
+```javascript
+render() {
+  return(
+    <Map data={populations} paths={USA} noDataColor="red" />
+  )
+}
+```
+
+- `noDataColor` defaults to the value of `colorRangeLow`
+
+Opacity of the regions with no data may be specified by passing in `noDataOpacity` prop.
+
+```javascript
+render() {
+  return(
+    <Map data={populations} paths={USA} noDataOpacity={0.1} />
+  )
+}
+```
+
+- `noDataOpacity` defaults to `0.5`
+
+Default (No data for California) |noDataColor="red"          |noDataOpacity={0.1}
+:-------------------------:|:-------------------------:|:-------------------------:
+![ScreenshotNoDataDefault](img/no_data_default.png) | ![ScreenshotNoDataColorRed](img/no_data_color.png) | ![ScreenshotNoDataOpacity0.1](img/no_data_opacity.png)
+
 #### Scale
 Users can control the scale of the Map coloring, linear or logarithmic.
 

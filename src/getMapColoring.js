@@ -77,7 +77,7 @@ const generateColor = (colorStart,colorEnd,colorCount, weightRange, scale) => {
 	return saida
 }
 
-const matchColorsToValues = (colors, IDList, data) => {
+const matchColorsToValues = (colors, noDataColor, noDataOpacity, IDList, data) => {
   let sortedData = data.sort(function compare(a,b) {
     if (a.weight < b.weight) return -1
     if (a.weight > b.weight) return 1
@@ -96,6 +96,7 @@ const matchColorsToValues = (colors, IDList, data) => {
     idToColor[dataItem.area] = {
       weight: weight,
       color: colors[colorIndex].color,
+      opacity: 1,
       raw: dataItem.raw
     }
     IDs.delete(dataItem.area)
@@ -104,7 +105,8 @@ const matchColorsToValues = (colors, IDList, data) => {
   // Handle IDs without supplied weights
   for (let id of IDs.values()) {
     idToColor[id] = {
-      color: colors[0].color
+      color: (noDataColor ? noDataColor : colors[0].color),
+      opacity: noDataOpacity
     }
   }
 
