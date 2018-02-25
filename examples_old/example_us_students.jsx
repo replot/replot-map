@@ -269,7 +269,7 @@ class ExampleApp extends React.Component {
           data={data}
           paths={USA}
           weightKey={this.state.weightKey}
-          IDKey="code"
+          geoCode="code"
           scale={this.state.scale}
           colorRangeHigh="#ca0004"
           colorRangeLow="#f1e8e8"

@@ -66,7 +66,7 @@ class MapChart extends React.PureComponent {
       IDList.push(area[this.props.pathIDKey])
     }
 
-    let extractedData = extractValues(this.props.data, this.props.IDKey, this.props.weightKey)
+    let extractedData = extractValues(this.props.data, this.props.geoCode, this.props.weightKey)
     let colorRange = [this.props.colorRangeHigh, this.props.colorRangeLow]
     let mapGradient = generateGradient(this.props.scale, extractedData, this.props.colorKey, colorRange, this.props.colorCatgories)
     let mapColors = matchColorsToValues(mapGradient, IDList, extractedData)
@@ -117,7 +117,7 @@ class MapChart extends React.PureComponent {
 }
 
 MapChart.defaultProps = {
-  IDKey: "ID",
+  geoCode: "ID",
   weightKey: "weight",
   pathIDKey: "id",
   pathTitleKey: "title",
@@ -130,7 +130,7 @@ MapChart.defaultProps = {
 MapChart.propTypes = {
   data: PropTypes.array.isRequired,
   paths: PropTypes.arrayOf(PropTypes.object).isRequired,
-  IDKey: PropTypes.string,
+  geoCode: PropTypes.string,
   weightKey: PropTypes.string,
   pathIDKey: PropTypes.string,
   pathTitleKey: PropTypes.string,

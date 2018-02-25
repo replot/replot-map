@@ -20,7 +20,7 @@ The only *required* inputs are properly formatted data and svg paths of your map
 
 ### Basic Usage
 In the simplest case, just supply data and svg paths (as Javascript arrays) and specify the
-keys for IDs and weights of data and IDs and titles of paths:
+keys for geocodes and weights of data and IDs and titles of paths:
 
 ``` javascript
 render() {
@@ -30,17 +30,17 @@ render() {
         {"code": "US-AZ", "population": 6817565},
         ...
     ]
-    
+
     let paths = [
-    	{"ID":"US-AK", "name":"Alaska", "d":"M456.18,...,731.03z"},
+    	  {"ID":"US-AK", "name":"Alaska", "d":"M456.18,...,731.03z"},
         {"ID":"US-AL", "name":"Alabama", "d":"M955.38,...,481.61z"},
         {"ID":"US-AZ", "name":"Arizona", "d":"M533.89,...,320.29z"},
         ...
     ]
-    
+
     return(
         <Map data={populations}
-            IDKey="code"
+            geoCode="code"
             weightKey="population"
             paths={paths}
             pathIDKey="ID"
@@ -51,7 +51,7 @@ render() {
 ```
 
 - `data` and `paths` are the only required props
-- `IDKey` defaults to `"ID"`
+- `geoCode` defaults to `"ID"`
 - `weightKey` defaults to `"weight"`
 - `pathIDKey` defaults to `"id"`
 - `pathTitleKey` defaults to `"title"`
@@ -71,10 +71,10 @@ render() {
         {"code": "US-AZ", "population": 6817565},
         ...
     ]
-    
+
     return(
         <Map data={populations}
-            IDKey="code"
+            geoCode="code"
             weightKey="population"
             paths={USA}
         />
@@ -137,7 +137,7 @@ If `zoomScale` is passed in, but `zoomID` is not, the Map will be scaled up from
 ![ScreenshotDefault](img/default.png) | ![ScreenshotZoomIDNullScale2](img/zoom_scale_2_ID_null.png) | ![ScreenshotZoomIDTexasScale2](img/zoom_scale_2_ID_US-TX.png)
 
 ### Color
-Colors may be specified by passing in `colorRangeLow` and `colorRangeHigh` props. The Map is colored with the gradient in the range of `colorRangeLow` to `colorRangeHigh`, from the smallest to the largest weight. 
+Colors may be specified by passing in `colorRangeLow` and `colorRangeHigh` props. The Map is colored with the gradient in the range of `colorRangeLow` to `colorRangeHigh`, from the smallest to the largest weight.
 
 ```javascript
 render() {
