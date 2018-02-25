@@ -200,6 +200,23 @@ render() {
 :-------------------------:|:-------------------------:
 ![ScreenshotDefault](img/default.png) | ![ScreenshotScaleLog](img/scale_log.png)
 
+### Legend
+Title of legend may be specified by passing in `legendTitle` prop.
+
+```javascript
+render() {
+  return(
+    <Map data={populations} paths={USA} legendTitle="Populations" />
+  )
+}
+```
+
+- `legendTitle` defaults to `null` and no title is shown.
+
+Default Legend             | legendTitle="Populations"
+:-------------------------:|:-------------------------:
+![ScreenshotDefaultLegend](img/legend_default.png) | ![ScreenshotLegendTitle](img/legend_title.png)
+
 ### Tooltip
 Tooltips can display more specific information about a data series.
 
