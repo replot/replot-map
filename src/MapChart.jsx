@@ -70,7 +70,7 @@ class MapChart extends React.PureComponent {
     let colorRange = [this.props.colorRangeHigh, this.props.colorRangeLow]
     let mapGradient = generateGradient(this.props.scale, extractedData, this.props.colorKey, colorRange, this.props.colorCatgories)
     let mapColors = matchColorsToValues(mapGradient, this.props.noDataColor, this.props.noDataOpacity, IDList, extractedData)
-    let legend = getLegend(mapGradient, this.props.scale, isBackgroundDark(colorRange))
+    let legend = getLegend(mapGradient, this.props.scale, this.props.legendTitle, isBackgroundDark(colorRange))
 
     let correctionX = 0
     let correctionY = 0
@@ -143,6 +143,7 @@ MapChart.propTypes = {
   noDataOpacity: PropTypes.number,
   noDataColor: PropTypes.string,
   scale: PropTypes.string,
+  legendTitle: PropTypes.string,
   width: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
