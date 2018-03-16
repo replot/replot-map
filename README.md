@@ -200,6 +200,29 @@ render() {
 :-------------------------:|:-------------------------:
 ![ScreenshotDefault](img/default.png) | ![ScreenshotScaleLog](img/scale_log.png)
 
+#### User-provided Color function
+Users can also specify a function to assign colors to different areas by passing in `colorFunc` prop. Expected arguments to the function are the geocode and weight for each area.
+
+```javascript
+function customColor(geocode, weight) {
+  if (weight > 5000000) {
+    return "#225588"
+  } else {
+    return "#ffffff"
+  }
+}
+
+render() {
+  return(
+    <Map data={populations} paths={USA} colorFunc={this.customColor} />
+  )
+}
+```
+
+When `colorFunc` is specified, legend is hidden and `noDataColor` defaults to `#ffffff`.
+
+![ScreenshotColorFunction](img/color_function.png)
+
 ### Legend
 Title of legend may be specified by passing in `legendTitle` prop.
 
