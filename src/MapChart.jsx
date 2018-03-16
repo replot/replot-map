@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {GradientLegend} from "replot-core"
 import extractValues from "./extractValues.js"
 import getTranslations from "./getTranslations.js"
-import getLegend from "./getLegend.jsx"
 import {generateGradient, matchColorsToValues, isBackgroundDark} from "./getMapColoring.js"
 
 class MapChart extends React.PureComponent {
@@ -90,7 +90,7 @@ class MapChart extends React.PureComponent {
       let colorRange = [this.props.colorRangeHigh, this.props.colorRangeLow]
       let mapGradient = generateGradient(this.props.scale, extractedData, this.props.colorKey, colorRange, this.props.colorCatgories)
       mapColors = matchColorsToValues(mapGradient, this.props.noDataColor, this.props.noDataOpacity, IDList, extractedData)
-      legend = getLegend(mapGradient, this.props.scale, this.props.legendTitle, isBackgroundDark(colorRange))
+      legend = GradientLegend(mapGradient, this.props.scale, this.props.legendTitle, isBackgroundDark(colorRange))
     }
 
     let correctionX = 0
