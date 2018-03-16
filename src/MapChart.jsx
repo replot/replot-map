@@ -67,10 +67,31 @@ class MapChart extends React.PureComponent {
     }
 
     let extractedData = extractValues(this.props.data, this.props.geoCode, this.props.weightKey)
-    let colorRange = [this.props.colorRangeHigh, this.props.colorRangeLow]
-    let mapGradient = generateGradient(this.props.scale, extractedData, this.props.colorKey, colorRange, this.props.colorCatgories)
-    let mapColors = matchColorsToValues(mapGradient, this.props.noDataColor, this.props.noDataOpacity, IDList, extractedData)
-    let legend = getLegend(mapGradient, this.props.scale, this.props.legendTitle, isBackgroundDark(colorRange))
+    let mapColors = {}
+    let legend
+    if (this.props.colorFunc) {
+      let IDs = new Set(IDList)
+      for (let e of extractedData) {
+        mapColors[e.area] = {
+          color: this.props.colorFunc(e.area, e.weight),
+          opacity: 1,
+          raw: e.raw
+        }
+        IDs.delete(e.area)
+      }
+      for (let id of IDs.values()) {
+        mapColors[id] = {
+          color: (this.props.noDataColor ? this.props.noDataColor : this.props.colorRangeLow),
+          opacity: this.props.noDataOpacity
+        }
+      }
+      legend = <rect key="placeholder" x={-30} y={-20} height={71} width={360} fillOpacity="0"/>
+    } else {
+      let colorRange = [this.props.colorRangeHigh, this.props.colorRangeLow]
+      let mapGradient = generateGradient(this.props.scale, extractedData, this.props.colorKey, colorRange, this.props.colorCatgories)
+      mapColors = matchColorsToValues(mapGradient, this.props.noDataColor, this.props.noDataOpacity, IDList, extractedData)
+      legend = getLegend(mapGradient, this.props.scale, this.props.legendTitle, isBackgroundDark(colorRange))
+    }
 
     let correctionX = 0
     let correctionY = 0
@@ -140,6 +161,7 @@ MapChart.propTypes = {
   colorRangeLow: PropTypes.string,
   colorRangeHigh: PropTypes.string,
   colorCatgories: PropTypes.string,
+  colorFunc: PropTypes.func,
   noDataOpacity: PropTypes.number,
   noDataColor: PropTypes.string,
   scale: PropTypes.string,
