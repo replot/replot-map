@@ -56,7 +56,7 @@ render() {
 - `pathIDKey` defaults to `"id"`
 - `pathTitleKey` defaults to `"title"`
 
-![ScreenshotDefaultUSA](img/default.png)
+![ScreenshotDefaultUSA](https://github.com/replot/replot-map/blob/master/img/default.png)
 
 You can also import our complimentary svg map paths:
 
@@ -112,7 +112,7 @@ render() {
 
  Default (800px)            | width={600}               | width="60%"              
 :-------------------------:|:-------------------------:|:-------------------------:
-![ScreenshotDefaultWidth](img/width_default.png) | ![ScreenshotWidth600px](img/width_600px.png) | ![ScreenshotWidth60%](img/width_60percent.png)
+![ScreenshotDefaultWidth](https://github.com/replot/replot-map/blob/master/img/width_default.png) | ![ScreenshotWidth600px](https://github.com/replot/replot-map/blob/master/img/width_600px.png) | ![ScreenshotWidth60%](https://github.com/replot/replot-map/blob/master/img/width_60percent.png)
 
 Height dimension will be adjusted automatically to best match the width, fitting the entirity of map without skewing the original aspect ratio.
 
@@ -134,7 +134,7 @@ If `zoomScale` is passed in, but `zoomID` is not, the Map will be scaled up from
 
  Default                   |zoomID={null} zoomScale={2}|zoomID="US-TX" zoomScale={2}         
 :-------------------------:|:-------------------------:|:-------------------------:
-![ScreenshotDefault](img/default.png) | ![ScreenshotZoomIDNullScale2](img/zoom_scale_2_ID_null.png) | ![ScreenshotZoomIDTexasScale2](img/zoom_scale_2_ID_US-TX.png)
+![ScreenshotDefault](https://github.com/replot/replot-map/blob/master/img/default.png) | ![ScreenshotZoomIDNullScale2](https://github.com/replot/replot-map/blob/master/img/zoom_scale_2_ID_null.png) | ![ScreenshotZoomIDTexasScale2](https://github.com/replot/replot-map/blob/master/img/zoom_scale_2_ID_US-TX.png)
 
 ### Color
 Colors may be specified by passing in `colorRangeLow` and `colorRangeHigh` props. The Map is colored with the gradient in the range of `colorRangeLow` to `colorRangeHigh`, from the smallest to the largest weight.
@@ -152,7 +152,7 @@ render() {
 
  Default                   |colorRangeLow="#ffffff" colorRangeHigh="#ff4c4c"         
 :-------------------------:|:-------------------------:
-![ScreenshotDefault](img/default.png) | ![ScreenshotColorHighFF4C4CLowFFFFFF](img/color_high_FF4C4C_low_ffffff.png)
+![ScreenshotDefault](https://github.com/replot/replot-map/blob/master/img/default.png) | ![ScreenshotColorHighFF4C4CLowFFFFFF](https://github.com/replot/replot-map/blob/master/img/color_high_FF4C4C_low_ffffff.png)
 
 #### Coloring Regions with No Data
 Color of the regions with no data may be specified by passing in `noDataColor` prop.
@@ -181,7 +181,7 @@ render() {
 
 Default (No data for California) |noDataColor="red"          |noDataOpacity={0.1}
 :-------------------------:|:-------------------------:|:-------------------------:
-![ScreenshotNoDataDefault](img/no_data_default.png) | ![ScreenshotNoDataColorRed](img/no_data_color.png) | ![ScreenshotNoDataOpacity0.1](img/no_data_opacity.png)
+![ScreenshotNoDataDefault](https://github.com/replot/replot-map/blob/master/img/no_data_default.png) | ![ScreenshotNoDataColorRed](https://github.com/replot/replot-map/blob/master/img/no_data_color.png) | ![ScreenshotNoDataOpacity0.1](https://github.com/replot/replot-map/blob/master/img/no_data_opacity.png)
 
 #### Scale
 Users can control the scale of the Map coloring, linear or logarithmic.
@@ -198,7 +198,7 @@ render() {
 
  Default (scale="lin")     | scale="log"     
 :-------------------------:|:-------------------------:
-![ScreenshotDefault](img/default.png) | ![ScreenshotScaleLog](img/scale_log.png)
+![ScreenshotDefault](https://github.com/replot/replot-map/blob/master/img/default.png) | ![ScreenshotScaleLog](https://github.com/replot/replot-map/blob/master/img/scale_log.png)
 
 #### User-provided Color function
 Users can also specify a function to assign colors to different areas by passing in `colorFunc` prop. Expected arguments to the function are the geocode and weight for each area.
@@ -221,7 +221,7 @@ render() {
 
 When `colorFunc` is specified, legend is hidden and `noDataColor` defaults to `#ffffff`.
 
-![ScreenshotColorFunction](img/color_function.png)
+![ScreenshotColorFunction](https://github.com/replot/replot-map/blob/master/img/color_function.png)
 
 ### Legend
 Title of legend may be specified by passing in `legendTitle` prop.
@@ -238,7 +238,7 @@ render() {
 
 Default Legend             | legendTitle="Populations"
 :-------------------------:|:-------------------------:
-![ScreenshotDefaultLegend](img/legend_default.png) | ![ScreenshotLegendTitle](img/legend_title.png)
+![ScreenshotDefaultLegend](https://github.com/replot/replot-map/blob/master/img/legend_default.png) | ![ScreenshotLegendTitle](https://github.com/replot/replot-map/blob/master/img/legend_title.png)
 
 ### Tooltip
 Tooltips can display more specific information about a data series.
@@ -257,7 +257,7 @@ render() {
 
 Default (tooltipColor="light")|tooltipColor="dark"|tooltip={false}   
 :-------------------------:|:-------------------------:|:-------------------------:
-![ScreenshotDefaultTooltip](img/tooltip_light.png) | ![ScreenshotTooltipDark](img/tooltip_dark.png) | ![ScreenshotTooltipOff](img/tooltip_off.png)
+![ScreenshotDefaultTooltip](https://github.com/replot/replot-map/blob/master/img/tooltip_light.png) | ![ScreenshotTooltipDark](https://github.com/replot/replot-map/blob/master/img/tooltip_dark.png) | ![ScreenshotTooltipOff](https://github.com/replot/replot-map/blob/master/img/tooltip_off.png)
 
 #### User-provided Tooltip Function
 Users can customize what is displayed inside the tooltip with a function. Expected arguments to the function are the title of the location and the data for the specific location hovered over. The function should return JSX.
@@ -279,7 +279,7 @@ render() {
 }
 ```
 
-![ScreenshotTooltipCustom](img/tooltip_custom.png)
+![ScreenshotTooltipCustom](https://github.com/replot/replot-map/blob/master/img/tooltip_custom.png)
 
 ## Supported Countries and Regions
 
