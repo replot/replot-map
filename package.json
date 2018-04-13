@@ -1,6 +1,6 @@
 {
   "name": "replot-map",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Map chart components for Replot",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MacroConnections/replot-map.git"
+    "url": "git+https://github.com/replot/replot-map.git"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
   "author": "Almaha Almalki",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MacroConnections/replot-map/issues"
+    "url": "https://github.com/replot/replot-map/issues"
   },
-  "homepage": "https://github.com/MacroConnections/replot-map#readme",
+  "homepage": "https://github.com/replot/replot-map#readme",
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
@@ -37,8 +37,8 @@
     "radium": "^0.21.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "replot-core": "git+ssh://git@github.com/MacroConnections/replot-core.git",
-    "replot-helpers": "git+ssh://git@github.com/MacroConnections/replot-helpers.git",
+    "replot-core": "git+ssh://git@github.com/replot/replot-core.git",
+    "replot-helpers": "git+ssh://git@github.com/replot/replot-helpers.git",
     "webpack": "^2.2.1"
   },
   "dependencies": {
