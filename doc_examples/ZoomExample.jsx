@@ -61,7 +61,7 @@ class ZoomExample extends React.Component {
     return(
       <div>
         <Map data={populations}
-            IDKey="code"
+            geoCode="code"
             weightKey="population"
             paths={USA}
             zoomID="US-TX"

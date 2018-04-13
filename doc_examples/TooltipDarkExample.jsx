@@ -61,7 +61,7 @@ class TooltipDarkExample extends React.Component {
     return(
       <div>
         <Map data={populations}
-            IDKey="code"
+            geoCode="code"
             weightKey="population"
             paths={USA}
             tooltipColor="dark"

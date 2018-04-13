@@ -62,7 +62,7 @@ class WidthExample extends React.Component {
       <div className="container" style={{textAlign: "center"}}>
         <div style={{display: "inline-block", textAlign: "left"}}>
           <Map data={populations}
-              IDKey="code"
+              geoCode="code"
               weightKey="population"
               paths={USA}
               width={600}
