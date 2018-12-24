@@ -14,11 +14,10 @@ modules, use as you would anything else.
 import {Map} from 'replot-map'
 ```
 
-## API
+## Quick Start
 replot-map is designed to create beautiful map charts right out of the box.
 The only *required* inputs are properly formatted data and svg paths of your map.
 
-### Basic Usage
 In the simplest case, just supply data and svg paths (as Javascript arrays) and specify the
 keys for geocodes and weights of data and IDs and titles of paths:
 
@@ -85,6 +84,8 @@ render() {
 If you're using our complimentary map paths, do not specify `pathIDKey` or `pathTitleKey`.
 
 Our complimentary map paths currently support 243 countries and regions. See [the list of all supported countries/regions](#supported-countries-and-regions).
+
+## API
 
 ### Dimensions
 Dimensions may be specified by passing in `width` prop with a number, in the unit of pixels.
