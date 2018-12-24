@@ -37,13 +37,13 @@
     "radium": "^0.21.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "replot-core": "git+ssh://git@github.com/replot/replot-core.git",
-    "replot-helpers": "git+ssh://git@github.com/replot/replot-helpers.git",
+    "replot-helpers": "^0.2.0",
     "webpack": "^2.2.1"
   },
   "dependencies": {
     "humanize-plus": "^1.8.2",
     "prop-types": "^15.6.0",
-    "react-motion": "^0.5.2"
+    "react-motion": "^0.5.2",
+    "replot-core": "^0.2.1"
   }
 }
